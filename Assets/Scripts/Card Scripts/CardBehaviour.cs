@@ -3,28 +3,45 @@ using UnityEngine;
 public class CardBehaviour : MonoBehaviour
 {
     public CardStats cardStats;  // Reference to the ScriptableObject
+    public int value = 5;        // The number used for damage/heal/buff/etc.
 
-    public void PlayCard()
+    public void PlayCard(GameObject target = null)
     {
-        // Call effects depending on what’s enabled in the asset
-        if (cardStats.canDamage)
+        // Damage logic
+        if (cardStats.canDamage && target != null && target.CompareTag("Enemy"))
         {
-            cardStats.DoDamage();
+            EnemyHealth enemy = target.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(value);
+            }
+
+            
         }
 
-        if (cardStats.canHeal)
+        // Healing logic
+        //if (cardStats.canHeal && target != null && target.CompareTag("Player"))
+        /*
         {
-            cardStats.DoHeal();
-        }
+            PlayerHealth player = target.GetComponent<PlayerHealth>();
+            if (player != null)
+            {
+                player.Heal(value);
+            }
+        }*/
 
+        // Draw card logic
         if (cardStats.canDrawCard)
         {
-            cardStats.DoDrawCard();
+            cardStats.DoDrawCard(); 
         }
 
-        if (cardStats.canBuff)
+        // Buff logic
+        if (cardStats.canBuff && target != null)
         {
             cardStats.DoBuff();
         }
     }
+
+
 }
