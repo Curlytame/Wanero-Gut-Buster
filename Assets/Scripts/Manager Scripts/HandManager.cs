@@ -10,7 +10,17 @@ public class HandManager : MonoBehaviour
 
     private List<Card> cardsInHand = new List<Card>();
 
-    public void AddCardToHand(Card card)
+    // 🔹 lets GameManager check hand size
+    public int CurrentHandSize => cardsInHand.Count;
+
+    // 🔹 new method so Card.cs can ask where it was originally
+    public int GetCardIndex(Card card)
+    {
+        return cardsInHand.IndexOf(card);
+    }
+
+    // 🔹 overload to allow inserting back at specific index
+    public void AddCardToHand(Card card, int index = -1)
     {
         if (cardsInHand.Count >= maxHandSize)
         {
@@ -20,7 +30,16 @@ public class HandManager : MonoBehaviour
         }
 
         card.transform.SetParent(handAnchor);
-        cardsInHand.Add(card);
+
+        if (index >= 0 && index <= cardsInHand.Count)
+        {
+            cardsInHand.Insert(index, card);
+        }
+        else
+        {
+            cardsInHand.Add(card);
+        }
+
         UpdateHandLayout();
     }
 

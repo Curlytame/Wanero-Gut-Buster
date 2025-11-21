@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ee4e606b79e6a44db42d7a7e2fc046e, type: 3}
-  m_Name: HoneyCardStats
+  m_Name: SaladCard
   m_EditorClassIdentifier: 
-  cardName: HoneyCard
-  description: 'Sweet Honey
-
-'
-  energyCost: 1
+  cardName: Salad
+  description: 
+  energyCost: 2
   canDamage: 1
   damageValue: 10
-  canHeal: 0
-  healValue: 0
+  canHeal: 1
+  healValue: 8
   canDrawCard: 0
   drawCount: 0
   canBuff: 0

@@ -5,9 +5,8 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [Header("Health Settings")]
-    public int maxHealth = 50;
-    private int currentHealth;
+    [Header("References")]
+    public EnemyStats stats; // Link to EnemyStats
 
     [Header("UI References")]
     public Slider healthSlider;
@@ -22,9 +21,9 @@ public class EnemyHealth : MonoBehaviour
     public GameObject hurtSpriteObject;
 
     [Header("Audio Settings")]
-    public AudioSource hurtAudioSource; // Assign AudioSource with a hurt clip
+    public AudioSource hurtAudioSource;
     [Range(0f, 1f)]
-    public float hurtVolume = 1f; // Adjustable in the Inspector
+    public float hurtVolume = 1f;
 
     private Vector3 originalPosition;
     private SpriteRenderer[] childRenderers;
@@ -32,7 +31,13 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        if (stats == null)
+            stats = GetComponent<EnemyStats>();
+
+        // Ensure health initialized
+        if (stats.currentHealth > stats.maxHealth)
+            stats.currentHealth = stats.maxHealth;
+
         UpdateUI();
 
         childRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -58,41 +63,55 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log("Enemy took " + damage + " damage. Current HP: " + currentHealth);
+        if (stats == null) return;
 
-        // Play hurt sound
+        int finalDamage = Mathf.Max(0, damage - stats.defense);
+        stats.ModifyHealth(-finalDamage);
+
+        Debug.Log($"Enemy took {finalDamage} damage (raw {damage}, defense {stats.defense}). Current HP: {stats.currentHealth}");
+
         if (hurtAudioSource != null)
         {
-            hurtAudioSource.volume = hurtVolume; // Ensure it uses current volume
+            hurtAudioSource.volume = hurtVolume;
             hurtAudioSource.Play();
         }
 
         UpdateUI();
         StartCoroutine(FlashAndShake());
 
-        if (currentHealth <= 0)
+        if (stats.currentHealth <= 0)
         {
             Die();
         }
     }
 
-    void UpdateUI()
+    public void Heal(int amount)
     {
+        if (stats == null) return;
+
+        stats.ModifyHealth(amount);
+        Debug.Log($"Enemy healed by {amount}. Current HP: {stats.currentHealth}");
+
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        if (stats == null) return;
+
         if (healthSlider != null)
         {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
+            healthSlider.maxValue = stats.maxHealth;
+            healthSlider.value = stats.currentHealth;
         }
 
         if (healthText != null)
         {
-            healthText.text = currentHealth + " / " + maxHealth;
+            healthText.text = $"{stats.currentHealth} / {stats.maxHealth}";
         }
     }
 
-    IEnumerator FlashAndShake()
+    private IEnumerator FlashAndShake()
     {
         if (hurtSpriteObject != null)
         {
@@ -133,7 +152,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
         Debug.Log("Enemy Died!");
         Destroy(gameObject);

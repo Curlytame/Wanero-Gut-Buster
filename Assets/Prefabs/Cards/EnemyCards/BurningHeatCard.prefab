@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7824668584566750287}
   - component: {fileID: 600115794034397066}
-  - component: {fileID: 5601705919078657062}
+  - component: {fileID: 8454549918329834467}
   m_Layer: 0
   m_Name: BurningHeatCard
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5601705919078657062
+--- !u!114 &8454549918329834467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,12 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 846107169284266744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755bb292f9bab6043adabb64f07bfb3f, type: 3}
+  m_Script: {fileID: 11500000, guid: a8a42fdd27c42af469ea3363f8d137a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeAttack: 3
-  flySpeed: 10
-  shrinkTargetScale: 0.3
-  damageAmount: 3
-  energyCost: 1
-  playerTargetPoint: {fileID: 0}
+  cardStats: {fileID: 11400000, guid: 8a1905b43c2623b478bee9bc832ef32e, type: 2}
+  playDelay: 0.5
+  stayDuration: 1
+  fadeDuration: 0.5

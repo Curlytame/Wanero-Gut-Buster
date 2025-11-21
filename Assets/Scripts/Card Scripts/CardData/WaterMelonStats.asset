@@ -16,7 +16,12 @@ MonoBehaviour:
   description: 'Watery Melon
 
 '
+  energyCost: 1
   canDamage: 1
+  damageValue: 8
   canHeal: 0
+  healValue: 0
   canDrawCard: 0
+  drawCount: 0
   canBuff: 0
+  buffValue: 0

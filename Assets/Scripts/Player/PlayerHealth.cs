@@ -4,9 +4,8 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Health Settings")]
-    public int maxHealth = 100;
-    private int currentHealth;
+    [Header("References")]
+    public PlayerStats stats; // Assign manually if needed
 
     [Header("UI")]
     public Slider healthSlider; // Assign in Inspector
@@ -16,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public float shakeMagnitude = 0.2f;
 
     [Header("Audio Settings")]
-    public AudioSource hurtAudioSource; // Assign an AudioSource with a hurt clip
+    public AudioSource hurtAudioSource;
     [Range(0f, 1f)]
     public float hurtVolume = 1f;
 
@@ -25,8 +24,15 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
-        UpdateUI();
+        if (stats == null)
+        {
+            stats = GetComponent<PlayerStats>();
+            if (stats == null)
+                Debug.LogError("❌ PlayerStats reference missing on PlayerHealth!");
+        }
+
+        if (healthSlider == null)
+            Debug.LogError("❌ HealthSlider not assigned in PlayerHealth!");
 
         mainCam = Camera.main;
         if (mainCam != null)
@@ -34,15 +40,19 @@ public class PlayerHealth : MonoBehaviour
 
         if (hurtAudioSource != null)
             hurtAudioSource.volume = hurtVolume;
+
+        UpdateUI();
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log("Player took " + damage + " damage. Current HP: " + currentHealth);
+        if (stats == null) return;
 
-        // Play hurt sound
+        int finalDamage = Mathf.Max(0, damage - stats.defence);
+        stats.ModifyHealth(-finalDamage);
+
+        Debug.Log($"⚡ Player took {finalDamage} damage → Current HP: {stats.currentHealth}");
+
         if (hurtAudioSource != null)
         {
             hurtAudioSource.volume = hurtVolume;
@@ -52,23 +62,33 @@ public class PlayerHealth : MonoBehaviour
         UpdateUI();
         StartCoroutine(ShakeCamera());
 
-        if (currentHealth <= 0)
-        {
+        if (stats.currentHealth <= 0)
             Die();
-        }
+    }
+
+    public void Heal(int amount)
+    {
+        if (stats == null) return;
+
+        stats.ModifyHealth(amount);
+        Debug.Log($"💚 Player healed {amount} → Current HP: {stats.currentHealth}");
+        UpdateUI();
     }
 
     void UpdateUI()
     {
-        if (healthSlider != null)
+        if (healthSlider != null && stats != null)
         {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
+            healthSlider.maxValue = stats.maxHealth;
+            healthSlider.value = stats.currentHealth;
+            Debug.Log($"🔄 Updating UI → Slider: {healthSlider.value}/{healthSlider.maxValue}");
         }
     }
 
     IEnumerator ShakeCamera()
     {
+        if (mainCam == null) yield break;
+
         float elapsed = 0f;
         while (elapsed < shakeDuration)
         {
@@ -85,8 +105,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player Died!");
-        // Add death logic here
+        Debug.Log("💀 Player Died!");
         gameObject.SetActive(false);
     }
 }

@@ -3,45 +3,45 @@ using UnityEngine;
 public class CardBehaviour : MonoBehaviour
 {
     public CardStats cardStats;  // Reference to the ScriptableObject
-    public int value = 5;        // The number used for damage/heal/buff/etc.
 
     public void PlayCard(GameObject target = null)
     {
-        // Damage logic
+        if (cardStats == null) return;
+
+        Debug.Log($"{cardStats.cardName} played! Energy cost: {cardStats.energyCost}");
+
+        // Damage
         if (cardStats.canDamage && target != null && target.CompareTag("Enemy"))
         {
             EnemyHealth enemy = target.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(value);
+                enemy.TakeDamage(cardStats.damageValue);
             }
-
-            
         }
 
-        // Healing logic
-        //if (cardStats.canHeal && target != null && target.CompareTag("Player"))
-        /*
+        /* Heal
+        if (cardStats.canHeal && target != null && target.CompareTag("Player"))
         {
             PlayerHealth player = target.GetComponent<PlayerHealth>();
             if (player != null)
             {
-                player.Heal(value);
+                player.Heal(cardStats.healValue);
             }
         }*/
 
-        // Draw card logic
+        // Draw card(s)
         if (cardStats.canDrawCard)
         {
-            cardStats.DoDrawCard(); 
+            Debug.Log($"Draw {cardStats.drawCount} card(s).");
+            // TODO: Hook into GameManager.DrawCard() later
         }
 
-        // Buff logic
+        // Buff
         if (cardStats.canBuff && target != null)
         {
-            cardStats.DoBuff();
+            Debug.Log($"Apply buff of {cardStats.buffValue} to {target.name}");
+            // TODO: Hook into PlayerStats/EnemyStats
         }
     }
-
-
 }

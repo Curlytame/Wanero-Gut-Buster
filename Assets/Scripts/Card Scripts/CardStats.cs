@@ -7,30 +7,19 @@ public class CardStats : ScriptableObject
     public string cardName;
     [TextArea] public string description;
 
+    [Header("Card Costs")]
+    public int energyCost = 1; // Always required
+
     [Header("Card Abilities")]
     public bool canDamage;
+    public int damageValue;
+
     public bool canHeal;
+    public int healValue;
+
     public bool canDrawCard;
+    public int drawCount;
+
     public bool canBuff;
-
-    // Later you can implement actual logic here, for now just placeholders:
-    public void DoDamage()
-    {
-        // TODO: Add damage logic
-    }
-
-    public void DoHeal()
-    {
-        // TODO: Add heal logic
-    }
-
-    public void DoDrawCard()
-    {
-        // TODO: Add draw card logic
-    }
-
-    public void DoBuff()
-    {
-        // TODO: Add buff logic
-    }
+    public int buffValue;
 }
