@@ -20,7 +20,8 @@ public class CardBehaviour : MonoBehaviour
             }
         }
 
-        /* Heal
+        // Heal
+        /*
         if (cardStats.canHeal && target != null && target.CompareTag("Player"))
         {
             PlayerHealth player = target.GetComponent<PlayerHealth>();
@@ -34,14 +35,27 @@ public class CardBehaviour : MonoBehaviour
         if (cardStats.canDrawCard)
         {
             Debug.Log($"Draw {cardStats.drawCount} card(s).");
-            // TODO: Hook into GameManager.DrawCard() later
+            // Hook into GameManager.DrawCard() later if needed
         }
 
         // Buff
         if (cardStats.canBuff && target != null)
         {
             Debug.Log($"Apply buff of {cardStats.buffValue} to {target.name}");
-            // TODO: Hook into PlayerStats/EnemyStats
         }
+
+        // 🟩 Discard after play
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (gm != null)
+        {
+            gm.DiscardCard(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("GameManager not found! Could not discard card.");
+        }
+
+        // Optional small delay then destroy or deactivate
+        // Destroy(gameObject, 0.5f);
     }
 }
