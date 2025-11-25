@@ -6,56 +6,66 @@ public class CardBehaviour : MonoBehaviour
 
     public void PlayCard(GameObject target = null)
     {
-        if (cardStats == null) return;
+        if (cardStats == null)
+        {
+            Debug.LogWarning("⚠️ CardStats not assigned!");
+            return;
+        }
 
         Debug.Log($"{cardStats.cardName} played! Energy cost: {cardStats.energyCost}");
 
-        // Damage
+        PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+        GameManager gm = FindObjectOfType<GameManager>();
+
+        // 🟥 Damage
         if (cardStats.canDamage && target != null && target.CompareTag("Enemy"))
         {
+            int totalDamage = cardStats.damageValue;
+            if (playerStats != null)
+                totalDamage += playerStats.attackBonus;
+
             EnemyHealth enemy = target.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(cardStats.damageValue);
+                enemy.TakeDamage(totalDamage);
+                Debug.Log($"💥 {cardStats.cardName} dealt {totalDamage} damage (base {cardStats.damageValue} + bonus {playerStats.attackBonus}).");
             }
         }
 
-        // Heal
-        /*
-        if (cardStats.canHeal && target != null && target.CompareTag("Player"))
+        // 💚 Heal
+        if (cardStats.canHeal)
         {
-            PlayerHealth player = target.GetComponent<PlayerHealth>();
-            if (player != null)
+            PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+            if (playerHealth != null)
             {
-                player.Heal(cardStats.healValue);
+                playerHealth.Heal(cardStats.healValue);
+                Debug.Log($"💚 Player healed for {cardStats.healValue} HP.");
             }
-        }*/
-
-        // Draw card(s)
-        if (cardStats.canDrawCard)
-        {
-            Debug.Log($"Draw {cardStats.drawCount} card(s).");
-            // Hook into GameManager.DrawCard() later if needed
         }
 
-        // Buff
-        if (cardStats.canBuff && target != null)
+        // 🟦 Draw cards
+        if (cardStats.canDrawCard && gm != null)
         {
-            Debug.Log($"Apply buff of {cardStats.buffValue} to {target.name}");
+            Debug.Log($"🃏 Drawing {cardStats.drawCount} card(s).");
+            for (int i = 0; i < cardStats.drawCount; i++)
+                gm.DrawCard();
         }
 
-        // 🟩 Discard after play
-        GameManager gm = FindObjectOfType<GameManager>();
+        // 🟩 Buff
+        if (cardStats.canBuff && playerStats != null)
+        {
+            playerStats.ApplyBuff(cardStats.buffValue, cardStats.buffDuration);
+        }
+
+        // 🔻 Discard Card after play
         if (gm != null)
         {
             gm.DiscardCard(gameObject);
         }
         else
         {
-            Debug.LogWarning("GameManager not found! Could not discard card.");
+            Debug.LogWarning("⚠️ GameManager not found! Could not discard card.");
+            Destroy(gameObject, 0.5f);
         }
-
-        // Optional small delay then destroy or deactivate
-        // Destroy(gameObject, 0.5f);
     }
 }

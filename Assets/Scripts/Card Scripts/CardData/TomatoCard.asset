@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee4e606b79e6a44db42d7a7e2fc046e, type: 3}
   m_Name: TomatoCard
   m_EditorClassIdentifier: 
-  cardName: 
-  description: 
+  cardName: Tomato Card
+  description: tomato
   energyCost: 1
   canDamage: 1
   damageValue: 8

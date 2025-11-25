@@ -1,111 +1,52 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
-using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("References")]
-    public PlayerStats stats; // Assign manually if needed
+    public int maxHealth = 100;
+    public int currentHealth;
 
-    [Header("UI")]
-    public Slider healthSlider; // Assign in Inspector
-
-    [Header("Camera Shake")]
-    public float shakeDuration = 0.2f;
-    public float shakeMagnitude = 0.2f;
-
-    [Header("Audio Settings")]
-    public AudioSource hurtAudioSource;
-    [Range(0f, 1f)]
-    public float hurtVolume = 1f;
-
-    private Vector3 camOriginalPos;
-    private Camera mainCam;
+    [Header("UI References")]
+    public Slider healthSlider;
+    public TextMeshProUGUI healthText;
 
     void Start()
     {
-        if (stats == null)
-        {
-            stats = GetComponent<PlayerStats>();
-            if (stats == null)
-                Debug.LogError("❌ PlayerStats reference missing on PlayerHealth!");
-        }
-
-        if (healthSlider == null)
-            Debug.LogError("❌ HealthSlider not assigned in PlayerHealth!");
-
-        mainCam = Camera.main;
-        if (mainCam != null)
-            camOriginalPos = mainCam.transform.localPosition;
-
-        if (hurtAudioSource != null)
-            hurtAudioSource.volume = hurtVolume;
-
+        currentHealth = maxHealth;
         UpdateUI();
     }
 
     public void TakeDamage(int damage)
     {
-        if (stats == null) return;
-
-        int finalDamage = Mathf.Max(0, damage - stats.defence);
-        stats.ModifyHealth(-finalDamage);
-
-        Debug.Log($"⚡ Player took {finalDamage} damage → Current HP: {stats.currentHealth}");
-
-        if (hurtAudioSource != null)
-        {
-            hurtAudioSource.volume = hurtVolume;
-            hurtAudioSource.Play();
-        }
-
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+        Debug.Log($"💥 Player took {damage} damage. Current HP: {currentHealth}");
         UpdateUI();
-        StartCoroutine(ShakeCamera());
 
-        if (stats.currentHealth <= 0)
-            Die();
+        if (currentHealth <= 0)
+        {
+            Debug.Log("☠️ Player died!");
+        }
     }
 
     public void Heal(int amount)
     {
-        if (stats == null) return;
-
-        stats.ModifyHealth(amount);
-        Debug.Log($"💚 Player healed {amount} → Current HP: {stats.currentHealth}");
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log($"💚 Player healed for {amount}. Current HP: {currentHealth}");
         UpdateUI();
     }
 
-    void UpdateUI()
+    private void UpdateUI()
     {
-        if (healthSlider != null && stats != null)
+        if (healthSlider != null)
         {
-            healthSlider.maxValue = stats.maxHealth;
-            healthSlider.value = stats.currentHealth;
-            Debug.Log($"🔄 Updating UI → Slider: {healthSlider.value}/{healthSlider.maxValue}");
-        }
-    }
-
-    IEnumerator ShakeCamera()
-    {
-        if (mainCam == null) yield break;
-
-        float elapsed = 0f;
-        while (elapsed < shakeDuration)
-        {
-            float x = Random.Range(-1f, 1f) * shakeMagnitude;
-            float y = Random.Range(-1f, 1f) * shakeMagnitude;
-
-            mainCam.transform.localPosition = camOriginalPos + new Vector3(x, y, 0f);
-            elapsed += Time.deltaTime;
-            yield return null;
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
         }
 
-        mainCam.transform.localPosition = camOriginalPos;
-    }
-
-    void Die()
-    {
-        Debug.Log("💀 Player Died!");
-        gameObject.SetActive(false);
+        if (healthText != null)
+        {
+            healthText.text = $"{currentHealth} / {maxHealth}";
+        }
     }
 }

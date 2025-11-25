@@ -9,6 +9,7 @@ public class TurnManager : MonoBehaviour
     [Header("References")]
     public PlayerManager playerManager;
     public EnemyManager enemyManager;
+    public PlayerStats playerStats;
     public Button endTurnButton;
 
     private void Start()
@@ -24,6 +25,7 @@ public class TurnManager : MonoBehaviour
         currentTurn = Turn.Player;
         Debug.Log("🔵 Player Turn Start");
         playerManager.StartTurn();
+
         if (endTurnButton != null)
             endTurnButton.interactable = true;
     }
@@ -33,12 +35,17 @@ public class TurnManager : MonoBehaviour
         if (currentTurn != Turn.Player) return;
 
         Debug.Log("🔴 Player Turn End");
+
+        // 🔻 Buffs tick down when pressing End Turn
+        if (playerStats != null)
+            playerStats.TickBuffs();
+
         if (endTurnButton != null)
             endTurnButton.interactable = false;
 
         StartCoroutine(enemyManager.StartEnemyTurn(() =>
         {
-            // Callback when enemy finishes
+            // After enemy finishes → back to player turn
             StartPlayerTurn();
         }));
     }

@@ -22,4 +22,5 @@ public class CardStats : ScriptableObject
 
     public bool canBuff;
     public int buffValue;
+    public int buffDuration; // 🔹 Duration in turns
 }

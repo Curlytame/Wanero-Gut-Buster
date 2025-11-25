@@ -1717,6 +1717,7 @@ MonoBehaviour:
   currentTurn: 0
   playerManager: {fileID: 726206651}
   enemyManager: {fileID: 726206650}
+  playerStats: {fileID: 1040450597}
   endTurnButton: {fileID: 192224637}
 --- !u!1 &750749879
 GameObject:
@@ -2810,12 +2811,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03eb5785eb11e714bba07caa50bbe4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 1040450597}
+  maxHealth: 100
+  currentHealth: 0
   healthSlider: {fileID: 929263260}
-  shakeDuration: 0.2
-  shakeMagnitude: 0.2
-  hurtAudioSource: {fileID: 1040450596}
-  hurtVolume: 1
+  healthText: {fileID: 0}
 --- !u!4 &1040450595
 Transform:
   m_ObjectHideFlags: 0
@@ -3460,6 +3459,9 @@ MonoBehaviour:
   - {fileID: 8821006379586748781, guid: b9370a5d168929e48bc8ab83f22c1bf5, type: 3}
   - {fileID: 332944971010077324, guid: 5345314e4d3002e4eb0ba97d6f2963bd, type: 3}
   - {fileID: 8821006379586748781, guid: b9370a5d168929e48bc8ab83f22c1bf5, type: 3}
+  - {fileID: 2698964288962214006, guid: 641028e0ade48ac43a164affeff38260, type: 3}
+  - {fileID: 2698964288962214006, guid: 641028e0ade48ac43a164affeff38260, type: 3}
+  - {fileID: 2698964288962214006, guid: 641028e0ade48ac43a164affeff38260, type: 3}
   startingHandSize: 4
   handManager: {fileID: 874020453}
   playerStats: {fileID: 1040450597}
@@ -3556,7 +3558,7 @@ Transform:
   m_GameObject: {fileID: 1486242733}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5699997, y: 0, z: 0}
+  m_LocalPosition: {x: -7.5699997, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
