@@ -7,8 +7,11 @@ public class CardStats : ScriptableObject
     public string cardName;
     [TextArea] public string description;
 
+    [Header("Card Tag")] 
+    public string cardTag; // e.g., "Vegetable", "Meat", "Fruit"
+
     [Header("Card Costs")]
-    public int energyCost = 1; // Always required
+    public int energyCost = 1;
 
     [Header("Card Abilities")]
     public bool canDamage;

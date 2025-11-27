@@ -653,6 +653,149 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dd8c552978286247b5eacc75b6f64c4, type: 3}
+--- !u!1 &340241287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340241291}
+  - component: {fileID: 340241290}
+  - component: {fileID: 340241289}
+  - component: {fileID: 340241288}
+  m_Layer: 0
+  m_Name: FusionArea3
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &340241288
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340241287}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
+--- !u!114 &340241289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340241287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fe28a5804d3e343ab4c411b7f1ae07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &340241290
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340241287}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 732789539
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &340241291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340241287}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.91, y: 2.41, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403932420
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,12 +827,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fusionArea1: {fileID: 708693749}
   fusionArea2: {fileID: 1499061873}
+  fusionArea3: {fileID: 340241289}
   fusionRecipes:
-  - cardA: {fileID: 11400000, guid: cc49ef1dac204834f81e6e0dc093361b, type: 2}
-    cardB: {fileID: 11400000, guid: a09f944be3dc91c4b98eef7616937eb0, type: 2}
+  - requiredSlots:
+    - specificCard: {fileID: 0}
+      requiredTag: Vegtable
+    - specificCard: {fileID: 0}
+      requiredTag: Vegtable
+    - specificCard: {fileID: 11400000, guid: 6e7b725c8237fb94aa40e5131ed69f5e, type: 2}
+      requiredTag: 
     resultCardPrefab: {fileID: 4818325329617841650, guid: 636c0ce05f29f4847887a9923275a0c3, type: 3}
   handManager: {fileID: 874020453}
   fusionButton: {fileID: 1620689768}
+  cookingPot: {fileID: 979006314}
+  shakeDuration: 0.4
+  shakeMagnitude: 10
 --- !u!4 &403932422
 Transform:
   m_ObjectHideFlags: 0
@@ -2651,8 +2803,8 @@ Transform:
   m_GameObject: {fileID: 986930139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.014458178, y: 0.13224009, z: 0}
-  m_LocalScale: {x: 1.1537967, y: 0.9593697, z: 1.5960468}
+  m_LocalPosition: {x: -0.0145, y: 0.0142, z: 0}
+  m_LocalScale: {x: 1.1537967, y: 1.1341668, z: 1.5960468}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1889017634}
@@ -3027,9 +3179,9 @@ MonoBehaviour:
   _currentHealth: 100
   defence: 0
   attackBonus: 0
-  maxEnergy: 6
-  currentEnergy: 2
-  energyGained: 1
+  maxEnergy: 100
+  currentEnergy: 5
+  energyGained: 3
   cardLimit: 7
   cardDrawCount: 2
   energyText: {fileID: 1276567999}
@@ -4640,9 +4792,9 @@ MonoBehaviour:
   stats: {fileID: 1889017639}
   healthSlider: {fileID: 2041821321}
   healthText: {fileID: 1501589539}
-  flashDuration: 0.1
+  flashDuration: 0.4
   shakeMagnitude: 0.1
-  shakeDuration: 0.2
+  shakeDuration: 0.4
   hurtSpriteObject: {fileID: 986930139}
   hurtAudioSource: {fileID: 1889017636}
   hurtVolume: 1
@@ -5112,6 +5264,7 @@ SceneRoots:
   - {fileID: 95510671}
   - {fileID: 708693751}
   - {fileID: 1499061875}
+  - {fileID: 340241291}
   - {fileID: 320612642}
   - {fileID: 1506259498}
   - {fileID: 1853591462}
