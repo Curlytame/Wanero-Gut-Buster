@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CardBehaviour : MonoBehaviour
 {
-    public CardStats cardStats;  // Reference to the ScriptableObject
+    public CardStats cardStats;
 
     public void PlayCard(GameObject target = null)
     {
@@ -12,12 +12,12 @@ public class CardBehaviour : MonoBehaviour
             return;
         }
 
-        Debug.Log($"{cardStats.cardName} played! Energy cost: {cardStats.energyCost}");
+        Debug.Log($"{cardStats.cardName} played! Cost: {cardStats.energyCost}");
 
         PlayerStats playerStats = FindObjectOfType<PlayerStats>();
         GameManager gm = FindObjectOfType<GameManager>();
 
-        // 🟥 Damage
+        // --- Damage ---
         if (cardStats.canDamage && target != null && target.CompareTag("Enemy"))
         {
             int totalDamage = cardStats.damageValue;
@@ -28,22 +28,22 @@ public class CardBehaviour : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(totalDamage);
-                Debug.Log($"💥 {cardStats.cardName} dealt {totalDamage} damage (base {cardStats.damageValue} + bonus {playerStats.attackBonus}).");
+                Debug.Log($"💥 {cardStats.cardName} dealt {totalDamage} damage.");
             }
         }
 
-        // 💚 Heal
+        // --- Heal ---
         if (cardStats.canHeal)
         {
             PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.Heal(cardStats.healValue);
-                Debug.Log($"💚 Player healed for {cardStats.healValue} HP.");
+                Debug.Log($"💚 Player healed {cardStats.healValue} HP.");
             }
         }
 
-        // 🟦 Draw cards
+        // --- Draw Cards ---
         if (cardStats.canDrawCard && gm != null)
         {
             Debug.Log($"🃏 Drawing {cardStats.drawCount} card(s).");
@@ -51,20 +51,23 @@ public class CardBehaviour : MonoBehaviour
                 gm.DrawCard();
         }
 
-        // 🟩 Buff
-        if (cardStats.canBuff && playerStats != null)
+        // --- Buffs ---
+        if (playerStats != null)
         {
-            playerStats.ApplyBuff(cardStats.buffValue, cardStats.buffDuration);
+            if (cardStats.canBuffAttack)
+                playerStats.ApplyAttackBuff(cardStats.attackBuffValue, cardStats.attackBuffDuration);
+
+            if (cardStats.canBuffDefense)
+                playerStats.ApplyDefenseBuff(cardStats.defenseBuffValue, cardStats.defenseBuffDuration);
         }
 
-        // 🔻 Discard Card after play
+        // --- Discard ---
         if (gm != null)
         {
             gm.DiscardCard(gameObject);
         }
         else
         {
-            Debug.LogWarning("⚠️ GameManager not found! Could not discard card.");
             Destroy(gameObject, 0.5f);
         }
     }

@@ -23,6 +23,9 @@ MonoBehaviour:
   healValue: 0
   canDrawCard: 0
   drawCount: 0
-  canBuff: 1
-  buffValue: 2
-  buffDuration: 1
+  canBuffAttack: 1
+  attackBuffValue: 2
+  attackBuffDuration: 2
+  canBuffDefense: 0
+  defenseBuffValue: 0
+  defenseBuffDuration: 0

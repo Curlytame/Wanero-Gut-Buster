@@ -20,7 +20,11 @@ public class CardStats : ScriptableObject
     public bool canDrawCard;
     public int drawCount;
 
-    public bool canBuff;
-    public int buffValue;
-    public int buffDuration; // 🔹 Duration in turns
+    public bool canBuffAttack;
+    public int attackBuffValue;
+    public int attackBuffDuration;
+
+    public bool canBuffDefense;
+    public int defenseBuffValue;
+    public int defenseBuffDuration;
 }

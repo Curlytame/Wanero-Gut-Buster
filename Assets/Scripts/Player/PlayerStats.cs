@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI energyText;
 
-    // 🔹 Individual Buff tracking
+    // Buff structures
     [System.Serializable]
     public class ActiveBuff
     {
@@ -31,7 +31,8 @@ public class PlayerStats : MonoBehaviour
         public int remainingTurns;
     }
 
-    private List<ActiveBuff> activeBuffs = new List<ActiveBuff>();
+    private List<ActiveBuff> attackBuffs = new List<ActiveBuff>();
+    private List<ActiveBuff> defenseBuffs = new List<ActiveBuff>();
 
     public int currentHealth
     {
@@ -65,46 +66,56 @@ public class PlayerStats : MonoBehaviour
         ModifyEnergy(energyGained);
     }
 
-    // --- Buff System ---
-    public void ApplyBuff(int value, int duration)
+    // --- Buff Application ---
+    public void ApplyAttackBuff(int value, int duration)
     {
-        ActiveBuff newBuff = new ActiveBuff { value = value, remainingTurns = duration };
-        activeBuffs.Add(newBuff);
+        var buff = new ActiveBuff { value = value, remainingTurns = duration };
+        attackBuffs.Add(buff);
         attackBonus += value;
 
-        Debug.Log($"🟢 Buff applied: +{value} attack for {duration} turns (Total attackBonus: {attackBonus}).");
+        Debug.Log($"🟢 Attack Buff +{value} applied ({duration} turns). Total AttackBonus: {attackBonus}");
     }
 
-    // Called when player presses End Turn
+    public void ApplyDefenseBuff(int value, int duration)
+    {
+        var buff = new ActiveBuff { value = value, remainingTurns = duration };
+        defenseBuffs.Add(buff);
+        defence += value;
+
+        Debug.Log($"🛡 Defense Buff +{value} applied ({duration} turns). Total Defense: {defence}");
+    }
+
+    // --- Buff Countdown (called when Player ends turn) ---
     public void TickBuffs()
     {
-        if (activeBuffs.Count == 0) return;
+        TickBuffList(attackBuffs, ref attackBonus, "Attack");
+        TickBuffList(defenseBuffs, ref defence, "Defense");
+    }
 
-        Debug.Log("🕒 Checking buffs...");
+    private void TickBuffList(List<ActiveBuff> buffList, ref int statRef, string type)
+    {
+        if (buffList.Count == 0) return;
 
         List<ActiveBuff> expired = new List<ActiveBuff>();
 
-        foreach (var buff in activeBuffs)
+        foreach (var buff in buffList)
         {
             buff.remainingTurns--;
             if (buff.remainingTurns <= 0)
                 expired.Add(buff);
         }
 
-        // Remove expired buffs and subtract their value
         foreach (var buff in expired)
         {
-            activeBuffs.Remove(buff);
-            attackBonus -= buff.value;
-            Debug.Log($"🔻 Buff expired: -{buff.value} attack (Remaining total bonus: {attackBonus}).");
+            buffList.Remove(buff);
+            statRef -= buff.value;
+            Debug.Log($"🔻 {type} Buff expired: -{buff.value} ({type} now {statRef})");
         }
     }
 
     private void UpdateEnergyUI()
     {
         if (energyText != null)
-        {
             energyText.text = $"Energy: {currentEnergy} / {maxEnergy}";
-        }
     }
 }

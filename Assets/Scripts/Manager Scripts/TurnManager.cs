@@ -36,7 +36,7 @@ public class TurnManager : MonoBehaviour
 
         Debug.Log("🔴 Player Turn End");
 
-        // 🔻 Buffs tick down when pressing End Turn
+        // Tick all buffs (attack + defense)
         if (playerStats != null)
             playerStats.TickBuffs();
 
@@ -45,7 +45,6 @@ public class TurnManager : MonoBehaviour
 
         StartCoroutine(enemyManager.StartEnemyTurn(() =>
         {
-            // After enemy finishes → back to player turn
             StartPlayerTurn();
         }));
     }
