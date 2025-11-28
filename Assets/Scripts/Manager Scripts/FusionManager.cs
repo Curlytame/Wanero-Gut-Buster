@@ -31,6 +31,7 @@ public class FusionManager : MonoBehaviour
     [Header("References")]
     public HandManager handManager;
     public Button fusionButton;
+    public PlayerStats playerStats; // <-- assign in Inspector
 
     [Header("Fusion FX")]
     public Transform cookingPot;
@@ -50,6 +51,21 @@ public class FusionManager : MonoBehaviour
 
     public void TryFusion()
     {
+        // Energy cost for fusion is 1
+        const int fusionEnergyCost = 1;
+
+        if (playerStats == null)
+        {
+            Debug.LogWarning("FusionManager: playerStats not assigned in Inspector. Fusion blocked.");
+            return;
+        }
+
+        if (playerStats.currentEnergy < fusionEnergyCost)
+        {
+            Debug.Log($"⚠️ Not enough energy to fuse. Requires {fusionEnergyCost}, you have {playerStats.currentEnergy}");
+            return;
+        }
+
         // Collect all filled fusion areas
         List<CardBehaviour> selectedCards = new List<CardBehaviour>();
 
@@ -84,14 +100,19 @@ public class FusionManager : MonoBehaviour
                 if (cookingPot != null)
                     StartCoroutine(ShakePot());
 
+                // Deduct energy for fusion
+                playerStats.ModifyEnergy(-fusionEnergyCost);
+
+                // Destroy all used cards
                 DestroyUsedCards();
 
+                // Spawn the fused card into hand
                 GameObject newCard = Instantiate(recipe.resultCardPrefab);
                 Card cardComp = newCard.GetComponent<Card>();
                 if (cardComp != null)
                     handManager.AddCardToHand(cardComp);
 
-                return;
+                return; // Stop after first valid match
             }
         }
 

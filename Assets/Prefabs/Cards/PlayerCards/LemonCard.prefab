@@ -157,3 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardStats: {fileID: 11400000, guid: a09f944be3dc91c4b98eef7616937eb0, type: 2}
+  attackEffectPrefab: {fileID: 6414049995483001186, guid: a863ee7848bfd0240ab6336916ec0824, type: 3}
+  effectRiseSpeed: 1
+  effectFadeDuration: 1

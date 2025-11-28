@@ -23,6 +23,10 @@ public class PlayerStats : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI energyText;
 
+    [Header("Buff Icons")]
+    public GameObject attackBuffIcon;
+    public GameObject defenseBuffIcon;
+
     // Buff structures
     [System.Serializable]
     public class ActiveBuff
@@ -46,6 +50,7 @@ public class PlayerStats : MonoBehaviour
             _currentHealth = maxHealth;
 
         UpdateEnergyUI();
+        UpdateBuffIcons(); // Make sure icons start correctly
     }
 
     // --- Health ---
@@ -74,6 +79,8 @@ public class PlayerStats : MonoBehaviour
         attackBonus += value;
 
         Debug.Log($"🟢 Attack Buff +{value} applied ({duration} turns). Total AttackBonus: {attackBonus}");
+
+        UpdateBuffIcons();
     }
 
     public void ApplyDefenseBuff(int value, int duration)
@@ -83,6 +90,8 @@ public class PlayerStats : MonoBehaviour
         defence += value;
 
         Debug.Log($"🛡 Defense Buff +{value} applied ({duration} turns). Total Defense: {defence}");
+
+        UpdateBuffIcons();
     }
 
     // --- Buff Countdown (called when Player ends turn) ---
@@ -90,6 +99,8 @@ public class PlayerStats : MonoBehaviour
     {
         TickBuffList(attackBuffs, ref attackBonus, "Attack");
         TickBuffList(defenseBuffs, ref defence, "Defense");
+
+        UpdateBuffIcons(); // Update icons after buffs expire
     }
 
     private void TickBuffList(List<ActiveBuff> buffList, ref int statRef, string type)
@@ -113,9 +124,19 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    // --- UI Updates ---
     private void UpdateEnergyUI()
     {
         if (energyText != null)
             energyText.text = $"Energy: {currentEnergy} / {maxEnergy}";
+    }
+
+    private void UpdateBuffIcons()
+    {
+        if (attackBuffIcon != null)
+            attackBuffIcon.SetActive(attackBonus != 0);
+
+        if (defenseBuffIcon != null)
+            defenseBuffIcon.SetActive(defence != 0);
     }
 }

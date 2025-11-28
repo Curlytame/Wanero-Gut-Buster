@@ -1,8 +1,14 @@
 using UnityEngine;
+using System.Collections;
 
 public class CardBehaviour : MonoBehaviour
 {
     public CardStats cardStats;
+
+    [Header("Visual Effects")]
+    public GameObject attackEffectPrefab;
+    public float effectRiseSpeed = 1f;
+    public float effectFadeDuration = 1f;
 
     public void PlayCard(GameObject target = null)
     {
@@ -29,6 +35,14 @@ public class CardBehaviour : MonoBehaviour
             {
                 enemy.TakeDamage(totalDamage);
                 Debug.Log($"💥 {cardStats.cardName} dealt {totalDamage} damage.");
+
+                // Spawn attack effect
+                if (attackEffectPrefab != null)
+                    StartCoroutine(SpawnAttackEffect(transform.position));
+
+                // Play player attack sound
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.playerAttackSound);
             }
         }
 
@@ -70,5 +84,38 @@ public class CardBehaviour : MonoBehaviour
         {
             Destroy(gameObject, 0.5f);
         }
+    }
+
+    private IEnumerator SpawnAttackEffect(Vector3 spawnPos)
+    {
+        if (attackEffectPrefab == null)
+            yield break;
+
+        // Instantiate effect
+        GameObject effect = Instantiate(attackEffectPrefab, spawnPos, Quaternion.identity);
+        SpriteRenderer sr = effect.GetComponent<SpriteRenderer>();
+        Color startColor = sr != null ? sr.color : Color.white;
+
+        float timer = 0f;
+
+        while (timer < effectFadeDuration)
+        {
+            // Move effect upward
+            effect.transform.position += Vector3.up * effectRiseSpeed * Time.deltaTime;
+
+            // Fade out if sprite renderer exists
+            if (sr != null)
+            {
+                float alpha = Mathf.Lerp(1f, 0f, timer / effectFadeDuration);
+                sr.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            }
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure destroyed at the end
+        if (effect != null)
+            Destroy(effect);
     }
 }

@@ -40,6 +40,13 @@ public class TurnManager : MonoBehaviour
         if (playerStats != null)
             playerStats.TickBuffs();
 
+        // Grant energy from player's energyGained value when they end turn
+        if (playerStats != null)
+        {
+            playerStats.GainEnergy();
+            Debug.Log($"➕ Gained {playerStats.energyGained} energy (now {playerStats.currentEnergy}/{playerStats.maxEnergy})");
+        }
+
         if (endTurnButton != null)
             endTurnButton.interactable = false;
 
