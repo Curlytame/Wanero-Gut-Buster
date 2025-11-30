@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelPick.unity
     guid: ed4b4aead6cbc56478b9180e6d46b7c9
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/FeverScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
     path: Assets/Scenes/Lose Scene.unity

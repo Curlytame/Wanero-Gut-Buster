@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Unlocked: 1
-  sceneToLoad: GameScene
+  sceneToLoad: FeverScene
   hoverScale: 1.2
   scaleSpeed: 5
   shakeDuration: 0.3
