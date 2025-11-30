@@ -16,11 +16,14 @@ MonoBehaviour:
   description: 'Sweet Honey
 
 '
+  cardTag: 
   energyCost: 1
+  canGainEnergy: 0
+  energyGainAmount: 0
   canDamage: 0
   damageValue: 0
-  canHeal: 0
-  healValue: 0
+  canHeal: 1
+  healValue: 4
   canDrawCard: 0
   drawCount: 0
   canBuffAttack: 1

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee4e606b79e6a44db42d7a7e2fc046e, type: 3}
+  m_Name: TeaLeavesCard
+  m_EditorClassIdentifier: 
+  cardName: Tealeaves
+  description: 
+  cardTag: 
+  energyCost: 0
+  canGainEnergy: 1
+  energyGainAmount: 5
+  canDamage: 0
+  damageValue: 0
+  canHeal: 1
+  healValue: 5
+  canDrawCard: 0
+  drawCount: 0
+  canBuffAttack: 0
+  attackBuffValue: 0
+  attackBuffDuration: 0
+  canBuffDefense: 0
+  defenseBuffValue: 0
+  defenseBuffDuration: 0

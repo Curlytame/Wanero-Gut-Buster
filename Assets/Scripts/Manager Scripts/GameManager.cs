@@ -1,24 +1,29 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Card Settings")]
-    public List<GameObject> deckList; // Prefabs set in Inspector
+    public List<GameObject> deckList;
     public int startingHandSize = 5;
 
     [Header("References")]
     public HandManager handManager;
     public PlayerStats playerStats;
+    public CardDrawEffectManager drawEffectManager;
 
-    private List<GameObject> deck = new List<GameObject>(); // runtime deck
-    private List<GameObject> discardPile = new List<GameObject>(); // runtime discard (prefab refs only)
+    [Header("Draw Settings")]
+    public float drawDelay = 0.3f;  // Delay before card is added, matches animation
+
+    private List<GameObject> deck = new List<GameObject>();
+    private List<GameObject> discardPile = new List<GameObject>();
 
     private void Start()
     {
         CreateDeck();
         ShuffleDeck();
-        DrawStartingHand();
+        StartCoroutine(DrawStartingHand());
     }
 
     private void CreateDeck()
@@ -29,7 +34,6 @@ public class GameManager : MonoBehaviour
             if (cardPrefab != null)
                 deck.Add(cardPrefab);
         }
-        Debug.Log($"Deck created with {deck.Count} cards.");
     }
 
     private void ShuffleDeck()
@@ -39,68 +43,66 @@ public class GameManager : MonoBehaviour
             int rand = Random.Range(i, deck.Count);
             (deck[i], deck[rand]) = (deck[rand], deck[i]);
         }
-        Debug.Log("Deck shuffled!");
     }
 
-    private void DrawStartingHand()
+    private IEnumerator DrawStartingHand()
     {
         int drawCount = Mathf.Min(startingHandSize, playerStats.cardLimit);
+
         for (int i = 0; i < drawCount; i++)
-            DrawCard();
+        {
+            yield return StartCoroutine(DrawCardWithEffect());
+        }
     }
 
     public void DrawCard()
     {
+        StartCoroutine(DrawCardWithEffect());
+    }
+
+    private IEnumerator DrawCardWithEffect()
+    {
+        // Play animation first
+        drawEffectManager?.PlayDrawAnimation();
+
+        // Wait for the animation/delay
+        yield return new WaitForSeconds(drawDelay);
+
         if (deck.Count == 0)
         {
             if (discardPile.Count > 0)
-            {
-                Debug.Log("Deck empty — reshuffling discard pile!");
                 ReshuffleDiscardPile();
-            }
             else
             {
-                Debug.LogWarning("No cards left to draw — both deck and discard empty!");
-                return;
+                Debug.LogWarning("No cards left to draw!");
+                yield break;
             }
         }
 
         if (handManager.CurrentHandSize >= playerStats.cardLimit)
         {
-            Debug.Log("Hand is full! Can't draw more cards.");
-            return;
+            Debug.Log("Hand full! Can't draw more cards.");
+            yield break;
         }
 
-        // Take top card prefab
         GameObject cardPrefab = deck[0];
         deck.RemoveAt(0);
 
         if (cardPrefab == null)
-        {
-            Debug.LogWarning("Card prefab reference missing — skipping draw.");
-            return;
-        }
+            yield break;
 
         GameObject cardObj = Instantiate(cardPrefab);
-        Card card = cardObj.GetComponent<Card>();
-        handManager.AddCardToHand(card);
+        Card c = cardObj.GetComponent<Card>();
+        handManager.AddCardToHand(c);
     }
 
-    // 🟢 Called when a card is played
     public void DiscardCard(GameObject card)
     {
         if (card == null) return;
 
-        // Keep prefab reference instead of destroyed instance
         GameObject prefabRef = GetCardPrefabReference(card);
         if (prefabRef != null)
-        {
             discardPile.Add(prefabRef);
-        }
-        else
-        {
-            Debug.LogWarning($"Card {card.name} does not have a valid prefab reference!");
-        }
 
         Destroy(card);
     }
@@ -110,10 +112,8 @@ public class GameManager : MonoBehaviour
         deck.AddRange(discardPile);
         discardPile.Clear();
         ShuffleDeck();
-        Debug.Log("Deck reshuffled from discard pile!");
     }
 
-    // Helper to get prefab reference (based on name match or ScriptableObject link)
     private GameObject GetCardPrefabReference(GameObject cardInstance)
     {
         string nameToFind = cardInstance.name.Replace("(Clone)", "").Trim();

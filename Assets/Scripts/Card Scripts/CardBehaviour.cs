@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class CardBehaviour : MonoBehaviour
 {
@@ -7,8 +6,6 @@ public class CardBehaviour : MonoBehaviour
 
     [Header("Visual Effects")]
     public GameObject attackEffectPrefab;
-    public float effectRiseSpeed = 1f;
-    public float effectFadeDuration = 1f;
 
     public void PlayCard(GameObject target = null)
     {
@@ -23,6 +20,13 @@ public class CardBehaviour : MonoBehaviour
         PlayerStats playerStats = FindObjectOfType<PlayerStats>();
         GameManager gm = FindObjectOfType<GameManager>();
 
+        // --- Energy Gain (✅ NEW) ---
+        if (cardStats.canGainEnergy && playerStats != null)
+        {
+            playerStats.ModifyEnergy(cardStats.energyGainAmount);
+            Debug.Log($"⚡ Gained {cardStats.energyGainAmount} Energy.");
+        }
+
         // --- Damage ---
         if (cardStats.canDamage && target != null && target.CompareTag("Enemy"))
         {
@@ -36,11 +40,9 @@ public class CardBehaviour : MonoBehaviour
                 enemy.TakeDamage(totalDamage);
                 Debug.Log($"💥 {cardStats.cardName} dealt {totalDamage} damage.");
 
-                // Spawn attack effect
                 if (attackEffectPrefab != null)
-                    StartCoroutine(SpawnAttackEffect(transform.position));
+                    Instantiate(attackEffectPrefab, transform.position, Quaternion.identity);
 
-                // Play player attack sound
                 if (SoundManager.Instance != null)
                     SoundManager.Instance.PlaySound(SoundManager.Instance.playerAttackSound);
             }
@@ -77,45 +79,8 @@ public class CardBehaviour : MonoBehaviour
 
         // --- Discard ---
         if (gm != null)
-        {
             gm.DiscardCard(gameObject);
-        }
         else
-        {
             Destroy(gameObject, 0.5f);
-        }
-    }
-
-    private IEnumerator SpawnAttackEffect(Vector3 spawnPos)
-    {
-        if (attackEffectPrefab == null)
-            yield break;
-
-        // Instantiate effect
-        GameObject effect = Instantiate(attackEffectPrefab, spawnPos, Quaternion.identity);
-        SpriteRenderer sr = effect.GetComponent<SpriteRenderer>();
-        Color startColor = sr != null ? sr.color : Color.white;
-
-        float timer = 0f;
-
-        while (timer < effectFadeDuration)
-        {
-            // Move effect upward
-            effect.transform.position += Vector3.up * effectRiseSpeed * Time.deltaTime;
-
-            // Fade out if sprite renderer exists
-            if (sr != null)
-            {
-                float alpha = Mathf.Lerp(1f, 0f, timer / effectFadeDuration);
-                sr.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
-            }
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        // Ensure destroyed at the end
-        if (effect != null)
-            Destroy(effect);
     }
 }

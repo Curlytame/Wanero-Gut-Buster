@@ -16,11 +16,15 @@ public class EnemyManager : MonoBehaviour
     public float effectFadeDuration = 1f;
 
     [Header("Timing")]
+    public float startTurnDelay = 1f;   // ⭐ New delay before enemy starts acting
     public float cardPlayInterval = 1f;
 
     public IEnumerator StartEnemyTurn(System.Action onTurnEnd)
     {
         Debug.Log("🔴 Enemy Turn Start");
+
+        // ⭐ WAIT before playing cards
+        yield return new WaitForSeconds(startTurnDelay);
 
         // Restore energy
         enemyStats.currentEnergy = enemyStats.maxEnergy;
@@ -47,12 +51,12 @@ public class EnemyManager : MonoBehaviour
 
             // Spend energy
             enemyStats.currentEnergy -= cost;
-            Debug.Log($"Enemy plays {cardBehaviour.cardStats.cardName} (Cost: {cost}) | Remaining Energy: {enemyStats.currentEnergy}");
+            Debug.Log($"Enemy plays {cardBehaviour.cardStats.cardName}  (Cost: {cost}) | Remaining Energy: {enemyStats.currentEnergy}");
 
             // Spawn card
             GameObject cardInstance = Instantiate(cardPrefab, cardPlayArea.position, Quaternion.identity);
 
-            // Spawn visual effect at the assigned spawn point
+            // Spawn visual effect
             if (cardPlayEffectPrefab != null && effectSpawnPoint != null)
             {
                 StartCoroutine(SpawnCardEffect(effectSpawnPoint.position));

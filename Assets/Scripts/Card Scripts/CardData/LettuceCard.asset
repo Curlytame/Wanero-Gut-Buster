@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee4e606b79e6a44db42d7a7e2fc046e, type: 3}
   m_Name: LettuceCard
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Lettuce
   description: 
   cardTag: Vegtable
   energyCost: 1
-  canDamage: 0
-  damageValue: 0
-  canHeal: 0
+  canGainEnergy: 1
+  energyGainAmount: 3
+  canDamage: 1
+  damageValue: 3
+  canHeal: 1
   healValue: 5
   canDrawCard: 0
   drawCount: 0
@@ -26,5 +28,5 @@ MonoBehaviour:
   attackBuffValue: 0
   attackBuffDuration: 0
   canBuffDefense: 1
-  defenseBuffValue: 9
+  defenseBuffValue: 1
   defenseBuffDuration: 2

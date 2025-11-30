@@ -16,10 +16,12 @@ MonoBehaviour:
   description: tomato
   cardTag: Vegtable
   energyCost: 1
+  canGainEnergy: 0
+  energyGainAmount: 0
   canDamage: 1
   damageValue: 8
-  canHeal: 0
-  healValue: 0
+  canHeal: 1
+  healValue: 2
   canDrawCard: 0
   drawCount: 0
   canBuffAttack: 0

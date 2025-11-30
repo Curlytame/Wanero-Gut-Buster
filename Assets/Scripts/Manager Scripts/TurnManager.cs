@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class TurnManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class TurnManager : MonoBehaviour
     public PlayerStats playerStats;
     public Button endTurnButton;
 
+    [Header("Turn Indicators")]
+    public GameObject playerTurnIndicator;
+    public GameObject enemyTurnIndicator;
+    public float indicatorDuration = 1f;   // how long to show
+
     private void Start()
     {
         if (endTurnButton != null)
@@ -23,6 +29,8 @@ public class TurnManager : MonoBehaviour
     private void StartPlayerTurn()
     {
         currentTurn = Turn.Player;
+        ShowIndicator(playerTurnIndicator);
+
         Debug.Log("🔵 Player Turn Start");
         playerManager.StartTurn();
 
@@ -36,23 +44,38 @@ public class TurnManager : MonoBehaviour
 
         Debug.Log("🔴 Player Turn End");
 
-        // Tick all buffs (attack + defense)
         if (playerStats != null)
             playerStats.TickBuffs();
 
-        // Grant energy from player's energyGained value when they end turn
         if (playerStats != null)
         {
             playerStats.GainEnergy();
-            Debug.Log($"➕ Gained {playerStats.energyGained} energy (now {playerStats.currentEnergy}/{playerStats.maxEnergy})");
+            Debug.Log($"➕ Gained {playerStats.energyGained} energy");
         }
 
         if (endTurnButton != null)
             endTurnButton.interactable = false;
 
+        // 🔥 Enemy turn indicator
+        ShowIndicator(enemyTurnIndicator);
+
         StartCoroutine(enemyManager.StartEnemyTurn(() =>
         {
             StartPlayerTurn();
         }));
+    }
+
+    // 🔵 Show indicator briefly
+    private void ShowIndicator(GameObject indicator)
+    {
+        if (indicator == null) return;
+        StartCoroutine(TurnIndicatorRoutine(indicator));
+    }
+
+    private IEnumerator TurnIndicatorRoutine(GameObject indicator)
+    {
+        indicator.SetActive(true);
+        yield return new WaitForSeconds(indicatorDuration);
+        indicator.SetActive(false);
     }
 }

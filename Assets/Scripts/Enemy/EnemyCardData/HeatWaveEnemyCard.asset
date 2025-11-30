@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeatWaveEnemyCard
   m_EditorClassIdentifier: 
   cardName: HeatwaveEnemyCard
-  description: regular fever attacksss
+  description: Regular fever attacks
   energyCost: 1
   canDamage: 1
   damageValue: 10

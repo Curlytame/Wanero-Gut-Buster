@@ -13,6 +13,11 @@ public class CardStats : ScriptableObject
     [Header("Card Costs")]
     public int energyCost = 1;
 
+    // ✅ NEW: ENERGY GAIN
+    [Header("Energy Effect")]
+    public bool canGainEnergy;
+    public int energyGainAmount;
+
     [Header("Card Abilities")]
     public bool canDamage;
     public int damageValue;

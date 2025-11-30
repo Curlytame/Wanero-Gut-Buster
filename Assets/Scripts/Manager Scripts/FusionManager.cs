@@ -31,7 +31,7 @@ public class FusionManager : MonoBehaviour
     [Header("References")]
     public HandManager handManager;
     public Button fusionButton;
-    public PlayerStats playerStats; // <-- assign in Inspector
+    public PlayerStats playerStats; // assign in Inspector
 
     [Header("Fusion FX")]
     public Transform cookingPot;
@@ -51,7 +51,6 @@ public class FusionManager : MonoBehaviour
 
     public void TryFusion()
     {
-        // Energy cost for fusion is 1
         const int fusionEnergyCost = 1;
 
         if (playerStats == null)
@@ -134,7 +133,6 @@ public class FusionManager : MonoBehaviour
             {
                 CardStats card = tempList[i];
 
-                // Match either specific card or by tag
                 if ((slot.specificCard != null && card == slot.specificCard) ||
                     (!string.IsNullOrEmpty(slot.requiredTag) && card.cardTag == slot.requiredTag))
                 {
