@@ -2108,7 +2108,7 @@ MonoBehaviour:
   - {fileID: 846107169284266744, guid: 768e1fbb555f19c41aa2758445e455ed, type: 3}
   - {fileID: 846107169284266744, guid: aca53a4ca0d2db94f8801b1743f2a8e3, type: 3}
   - {fileID: 846107169284266744, guid: de8ef02442f639f44bc4f6a09641ef24, type: 3}
-  cardPlayEffectPrefab: {fileID: 3120748848137098391, guid: c96d14d462cb1e14880f40c6eb874864, type: 3}
+  cardPlayEffectPrefab: {fileID: 246834923419787954, guid: 064fe90e2ee268c4c98639c40a913733, type: 3}
   effectSpawnPoint: {fileID: 418353412}
   effectRiseSpeed: 0.5
   effectFadeDuration: 1

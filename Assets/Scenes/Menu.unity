@@ -874,9 +874,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36dd9231e666544469bdc7874ac01470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playButton: {fileID: 0}
-  backButton: {fileID: 0}
-  exitButton: {fileID: 0}
+  playButton: {fileID: 1042291638}
+  backButton: {fileID: 1453681477}
+  exitButton: {fileID: 2008190838}
   playSceneName: LevelPick
   backSceneName: Menu
 --- !u!1 &375477615

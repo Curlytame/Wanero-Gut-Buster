@@ -20,5 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose Scene.unity
     guid: e8851896148bfd7489b3bc472be2f726
+  - enabled: 1
+    path: Assets/Scenes/AcidScene.unity
+    guid: 2b7b515a83464c54e89bee16722bf5b5
+  - enabled: 1
+    path: Assets/Scenes/ColdScene.unity
+    guid: b0f75563547fe67459e2045ebaf78a87
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4411f89bf24027a4daf45fe1bdc0d30b, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ddcf78ebda67ed1429bdb5d1341cedc2, type: 2}
