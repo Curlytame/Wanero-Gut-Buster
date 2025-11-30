@@ -2020,10 +2020,10 @@ MonoBehaviour:
   enemyStats: {fileID: 1889017639}
   cardPlayArea: {fileID: 1506259498}
   enemyCardPrefabs:
-  - {fileID: 846107169284266744, guid: 2dd8c552978286247b5eacc75b6f64c4, type: 3}
-  - {fileID: 846107169284266744, guid: 17fd7bed29250a84fbdfdf72b7a08280, type: 3}
-  - {fileID: 846107169284266744, guid: 5d44e947050d4ee4894f3d2888c09b80, type: 3}
-  - {fileID: 846107169284266744, guid: 2e497551a5df651489828a62f6770453, type: 3}
+  - {fileID: 846107169284266744, guid: 4d98a883b4c793c4aac6b0824d964d23, type: 3}
+  - {fileID: 846107169284266744, guid: 5f68c2c259dc30841a8668ae4dd58766, type: 3}
+  - {fileID: 846107169284266744, guid: d0f501616bcb6e3489fbc5e069caa1bd, type: 3}
+  - {fileID: 846107169284266744, guid: 0d61f9e9e3f9e39439d23eb046740eb3, type: 3}
   cardPlayEffectPrefab: {fileID: 3120748848137098391, guid: c96d14d462cb1e14880f40c6eb874864, type: 3}
   effectSpawnPoint: {fileID: 418353412}
   effectRiseSpeed: 0.5
@@ -2194,7 +2194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.01, y: 44.72}
+  m_AnchoredPosition: {x: 30.01, y: 38}
   m_SizeDelta: {x: 260.31, y: 62.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &825562645
@@ -2252,8 +2252,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2648,7 +2648,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9169811, g: 0.15052326, b: 0.15052326, a: 1}
+    m_NormalColor: {r: 0.4318876, g: 0.94716984, b: 0.062548816, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2956,6 +2956,7 @@ MonoBehaviour:
   currentHealth: 0
   healthSlider: {fileID: 929263260}
   healthText: {fileID: 1252004165}
+  deathSceneName: 
 --- !u!4 &1040450595
 Transform:
   m_ObjectHideFlags: 0
@@ -3815,7 +3816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttackSound: {fileID: 8300000, guid: 4c390385b928cd441806a7333c5d4662, type: 3}
   enemyAttackSound: {fileID: 0}
-  fireEffectSound: {fileID: 8300000, guid: fe6c1c0a001f0e84892658b50e4a7328, type: 3}
+  fireEffectSound: {fileID: 8300000, guid: 7511959e00749204d95f1a6781ae9de8, type: 3}
   cardDrawSound: {fileID: 8300000, guid: 09a6d5319eb5962498428787be6e8fe3, type: 3}
   fusionSuccessSound: {fileID: 8300000, guid: a4d32882bf0268b47beae8ec918fe3ae, type: 3}
   invalidFusionSound: {fileID: 8300000, guid: acbfabff4c3dd4f42acae871bc1f857d, type: 3}
@@ -3929,7 +3930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103.1, y: 14.6}
+  m_AnchoredPosition: {x: -109, y: 14.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341080759
@@ -3952,7 +3953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fever
+  m_text: 'Acid Reflux
 
 '
   m_isRightToLeft: 0
@@ -3963,8 +3964,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4278255376
+  m_fontColor: {r: 0.064607024, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4017,7 +4018,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -29.70057, y: 0, z: 0, w: -1.1880188}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5691,7 +5692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1836826689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6097,12 +6098,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890b540023edfdd44b94600ecf49f765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  _currentHealth: 100
+  maxHealth: 150
+  _currentHealth: 150
   attackBonus: 0
   defense: 0
-  maxEnergy: 3
-  currentEnergy: 3
+  maxEnergy: 4
+  currentEnergy: 4
   activeBuffs: []
 --- !u!1 &1895948698
 GameObject:
@@ -6474,7 +6475,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.3610769, b: 0, a: 1}
+    m_NormalColor: {r: 0.1685431, g: 1, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
