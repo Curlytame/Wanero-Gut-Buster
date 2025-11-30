@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095ba8dced8c92448867072dfb31451f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardStats: {fileID: 11400000, guid: a09f944be3dc91c4b98eef7616937eb0, type: 2}
+  cardStats: {fileID: 11400000, guid: b53cb569823a09545a1bd1a8012aaf3e, type: 2}
   attackEffectPrefab: {fileID: 6414049995483001186, guid: a863ee7848bfd0240ab6336916ec0824, type: 3}
 --- !u!1 &1836451068634730757
 GameObject:

@@ -2,11 +2,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement; // For scene loading
 
 public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("Button State")]
     public bool Unlocked = false;
+
+    [Header("Scene Settings")]
+    public string sceneToLoad; // Scene name to load on click
 
     [Header("Scale & Shake")]
     public float hoverScale = 1.2f;
@@ -75,7 +79,16 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             }
 
             Debug.Log("Button clicked: Unlocked");
-            // Insert unlocked button behavior here
+
+            // Load assigned scene if specified
+            if (!string.IsNullOrEmpty(sceneToLoad))
+            {
+                SceneManager.LoadScene(sceneToLoad);
+            }
+            else
+            {
+                Debug.LogWarning("No scene assigned in inspector for this button!");
+            }
         }
     }
 

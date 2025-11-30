@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: BurningSurgeCard
   description: Strong fever attacks
-  energyCost: 1
+  energyCost: 2
   canDamage: 1
-  damageValue: 15
+  damageValue: 10
   canHeal: 0
   healValue: 0
   canBuff: 0
   buffValue: 0
+  buffDuration: 0
   canDrawCard: 0
   drawCount: 0
-  useChance: 0.5
+  useChance: 0.3
   playDelay: 0.5

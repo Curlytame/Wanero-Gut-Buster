@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-using UnityEngine;
-using System.Collections;
 
 public class CardDrawEffectManager : MonoBehaviour
 {
@@ -19,11 +15,11 @@ public class CardDrawEffectManager : MonoBehaviour
     public float fadeSpeed = 2f;        
 
     [Header("Timing")]
-    public float activationDelay = 0f;   // ⏳ NEW: delay BEFORE animation starts
-    public float spawnDelay = 0.1f;      // delay BETWEEN each spawned card
+    public float activationDelay = 0f;   
+    public float spawnDelay = 0.1f;      
 
     [Header("Options")]
-    public bool autoPlay = true;         // Play immediately when called
+    public bool autoPlay = true;         
 
     [Header("Target Position")]
     public Transform targetPos;          
@@ -33,20 +29,22 @@ public class CardDrawEffectManager : MonoBehaviour
         Instance = this;
     }
 
-    // 🔵 The function GameManager calls
     public void PlayEffect()
     {
         if (!autoPlay) return;
+
+        // Play card draw sound
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.cardDrawSound);
+
         StartCoroutine(PlayWithDelay());
     }
 
-    // 🔵 For GameManager compatibility
     public void PlayDrawAnimation()
     {
         PlayEffect();
     }
 
-    // ⏳ Handles ACTIVATION DELAY
     private IEnumerator PlayWithDelay()
     {
         if (effectPrefab == null || targetPos == null)
@@ -83,7 +81,6 @@ public class CardDrawEffectManager : MonoBehaviour
 
         float randomRot = Random.Range(-15f, 15f);
 
-        // SHUFFLE
         while (Vector3.Distance(fx.transform.position, slideTarget) > 0.01f)
         {
             fx.transform.position = Vector3.MoveTowards(
@@ -103,7 +100,6 @@ public class CardDrawEffectManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.05f);
 
-        // FLY + FADE
         while (fx != null && Vector3.Distance(fx.transform.position, targetPos.position) > 0.01f)
         {
             fx.transform.position = Vector3.MoveTowards(

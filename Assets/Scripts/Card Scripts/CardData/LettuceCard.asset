@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Lettuce
   description: 
-  cardTag: Vegtable
+  cardTag: vegetables
   energyCost: 1
   canGainEnergy: 1
   energyGainAmount: 3

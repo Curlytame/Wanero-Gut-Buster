@@ -6,15 +6,15 @@ using UnityEngine.UI;
 [System.Serializable]
 public class FusionRecipeSlot
 {
-    public CardStats specificCard; // If null, allows any card with the requiredTag
-    public string requiredTag; // Optional, e.g., "Vegetable"
+    public CardStats specificCard;
+    public string requiredTag;
 }
 
 [System.Serializable]
 public class FusionRecipe
 {
     [Header("Fusion Ingredients (2 or 3 Cards)")]
-    public List<FusionRecipeSlot> requiredSlots = new List<FusionRecipeSlot>(); // Can be 2 or 3
+    public List<FusionRecipeSlot> requiredSlots = new List<FusionRecipeSlot>();
     public GameObject resultCardPrefab;
 }
 
@@ -31,7 +31,7 @@ public class FusionManager : MonoBehaviour
     [Header("References")]
     public HandManager handManager;
     public Button fusionButton;
-    public PlayerStats playerStats; // assign in Inspector
+    public PlayerStats playerStats;
 
     [Header("Fusion FX")]
     public Transform cookingPot;
@@ -62,12 +62,11 @@ public class FusionManager : MonoBehaviour
         if (playerStats.currentEnergy < fusionEnergyCost)
         {
             Debug.Log($"⚠️ Not enough energy to fuse. Requires {fusionEnergyCost}, you have {playerStats.currentEnergy}");
+            PlaySound(SoundManager.Instance?.invalidFusionSound);
             return;
         }
 
-        // Collect all filled fusion areas
         List<CardBehaviour> selectedCards = new List<CardBehaviour>();
-
         if (fusionArea1.CurrentCard != null)
             selectedCards.Add(fusionArea1.CurrentCard.GetComponent<CardBehaviour>());
         if (fusionArea2.CurrentCard != null)
@@ -78,15 +77,14 @@ public class FusionManager : MonoBehaviour
         if (selectedCards.Count < 2)
         {
             Debug.Log("⚠️ You need at least 2 cards to fuse!");
+            PlaySound(SoundManager.Instance?.invalidFusionSound);
             return;
         }
 
         List<CardStats> selectedStats = new List<CardStats>();
         foreach (var card in selectedCards)
-        {
             if (card != null && card.cardStats != null)
                 selectedStats.Add(card.cardStats);
-        }
 
         foreach (FusionRecipe recipe in fusionRecipes)
         {
@@ -96,26 +94,25 @@ public class FusionManager : MonoBehaviour
             if (IsFusionMatch(recipe.requiredSlots, selectedStats))
             {
                 Debug.Log($"🍲 Fusion successful: {recipe.resultCardPrefab.name}");
+                PlaySound(SoundManager.Instance?.fusionSuccessSound);
+
                 if (cookingPot != null)
                     StartCoroutine(ShakePot());
 
-                // Deduct energy for fusion
                 playerStats.ModifyEnergy(-fusionEnergyCost);
-
-                // Destroy all used cards
                 DestroyUsedCards();
 
-                // Spawn the fused card into hand
                 GameObject newCard = Instantiate(recipe.resultCardPrefab);
                 Card cardComp = newCard.GetComponent<Card>();
                 if (cardComp != null)
                     handManager.AddCardToHand(cardComp);
 
-                return; // Stop after first valid match
+                return;
             }
         }
 
         Debug.Log("❌ No valid fusion recipe found!");
+        PlaySound(SoundManager.Instance?.invalidFusionSound);
     }
 
     private bool IsFusionMatch(List<FusionRecipeSlot> recipeSlots, List<CardStats> selectedCards)
@@ -132,7 +129,6 @@ public class FusionManager : MonoBehaviour
             for (int i = 0; i < tempList.Count; i++)
             {
                 CardStats card = tempList[i];
-
                 if ((slot.specificCard != null && card == slot.specificCard) ||
                     (!string.IsNullOrEmpty(slot.requiredTag) && card.cardTag == slot.requiredTag))
                 {
@@ -177,11 +173,16 @@ public class FusionManager : MonoBehaviour
         {
             float z = Mathf.Sin(Time.time * 60f) * shakeMagnitude;
             cookingPot.localEulerAngles = new Vector3(startRot.x, startRot.y, startRot.z + z);
-
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         cookingPot.localEulerAngles = startRot;
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound(clip);
     }
 }

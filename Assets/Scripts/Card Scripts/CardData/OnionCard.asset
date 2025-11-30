@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Onion
   description: 
-  cardTag: Vegtable
+  cardTag: vegetables
   energyCost: 0
   canGainEnergy: 1
   energyGainAmount: 0

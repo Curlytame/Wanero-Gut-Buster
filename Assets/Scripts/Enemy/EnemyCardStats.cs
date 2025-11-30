@@ -8,7 +8,7 @@ public class EnemyCardStats : ScriptableObject
     [TextArea] public string description;
 
     [Header("Energy")]
-    public int energyCost = 1; // Energy required to play this card
+    public int energyCost = 1;
 
     [Header("Abilities")]
     public bool canDamage;
@@ -19,14 +19,12 @@ public class EnemyCardStats : ScriptableObject
 
     public bool canBuff;
     public int buffValue;
+    public int buffDuration = 2; // 🟩 Buff duration in turns
 
     public bool canDrawCard;
     public int drawCount;
 
-    [Header("AI Usage Settings")]
-    [Tooltip("How likely the AI is to choose this card (0 = never, 1 = always).")]
+    [Header("AI Settings")]
     [Range(0f, 1f)] public float useChance = 1f;
-
-    [Tooltip("Optional delay before the enemy plays this card.")]
     public float playDelay = 0.5f;
 }

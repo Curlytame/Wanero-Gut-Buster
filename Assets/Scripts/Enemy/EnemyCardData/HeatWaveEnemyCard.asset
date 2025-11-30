@@ -16,11 +16,12 @@ MonoBehaviour:
   description: Regular fever attacks
   energyCost: 1
   canDamage: 1
-  damageValue: 10
+  damageValue: 5
   canHeal: 0
   healValue: 0
   canBuff: 0
   buffValue: 0
+  buffDuration: 0
   canDrawCard: 0
   drawCount: 0
   useChance: 1

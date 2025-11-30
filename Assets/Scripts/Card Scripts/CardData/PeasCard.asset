@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Peas
   description: 
-  cardTag: Vegtable
+  cardTag: vegetables
   energyCost: 1
+  canGainEnergy: 0
+  energyGainAmount: 0
   canDamage: 1
   damageValue: 2
   canHeal: 1

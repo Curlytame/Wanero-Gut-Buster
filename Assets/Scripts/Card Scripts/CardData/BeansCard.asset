@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Beans
   description: 
-  cardTag: Vegtable
-  energyCost: 0
+  cardTag: vegetables
+  energyCost: 1
   canGainEnergy: 0
   energyGainAmount: 0
   canDamage: 1

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement; // Needed for scene loading
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -25,18 +26,26 @@ public class EnemyHealth : MonoBehaviour
     [Range(0f, 1f)]
     public float hurtVolume = 1f;
 
+    [Header("Death Fade Settings")]
+    public float deathFadeDuration = 1f;
+    public Vector3 deathMoveOffset = new Vector3(0, 2f, 0);
+
+    [Header("Next Scene")]
+    public string nextSceneName = ""; // Type scene name in inspector
+
     private Vector3 originalPosition;
     private SpriteRenderer[] childRenderers;
     private GameObject[] normalSpriteObjects;
+
+    private bool isDead = false;
 
     void Start()
     {
         if (stats == null)
             stats = GetComponent<EnemyStats>();
 
-        // Ensure health initialized
-        if (stats.currentHealth > stats.maxHealth)
-            stats.currentHealth = stats.maxHealth;
+        // Clamp health
+        stats.currentHealth = Mathf.Clamp(stats.currentHealth, 0, stats.maxHealth);
 
         UpdateUI();
 
@@ -47,9 +56,7 @@ public class EnemyHealth : MonoBehaviour
         foreach (Transform child in transform)
         {
             if (child.gameObject != hurtSpriteObject)
-            {
                 normalSpriteObjects[i++] = child.gameObject;
-            }
         }
 
         originalPosition = transform.localPosition;
@@ -63,7 +70,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (stats == null) return;
+        if (stats == null || isDead) return;
 
         int finalDamage = Mathf.Max(0, damage - stats.defense);
         stats.ModifyHealth(-finalDamage);
@@ -71,25 +78,23 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log($"Enemy took {finalDamage} damage (raw {damage}, defense {stats.defense}). Current HP: {stats.currentHealth}");
 
         if (hurtAudioSource != null)
-        {
-            hurtAudioSource.volume = hurtVolume;
             hurtAudioSource.Play();
-        }
 
         UpdateUI();
         StartCoroutine(FlashAndShake());
 
-        if (stats.currentHealth <= 0)
+        if (stats.currentHealth <= 0 && !isDead)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
     public void Heal(int amount)
     {
-        if (stats == null) return;
+        if (stats == null || isDead) return;
 
         stats.ModifyHealth(amount);
+        stats.currentHealth = Mathf.Clamp(stats.currentHealth, 0, stats.maxHealth); // Clamp to max
         Debug.Log($"Enemy healed by {amount}. Current HP: {stats.currentHealth}");
 
         UpdateUI();
@@ -106,9 +111,7 @@ public class EnemyHealth : MonoBehaviour
         }
 
         if (healthText != null)
-        {
             healthText.text = $"{stats.currentHealth} / {stats.maxHealth}";
-        }
     }
 
     private IEnumerator FlashAndShake()
@@ -116,10 +119,7 @@ public class EnemyHealth : MonoBehaviour
         if (hurtSpriteObject != null)
         {
             foreach (var obj in normalSpriteObjects)
-            {
-                if (obj != null)
-                    obj.SetActive(false);
-            }
+                if (obj != null) obj.SetActive(false);
 
             hurtSpriteObject.SetActive(true);
         }
@@ -140,21 +140,52 @@ public class EnemyHealth : MonoBehaviour
         {
             hurtSpriteObject.SetActive(false);
             foreach (var obj in normalSpriteObjects)
-            {
-                if (obj != null)
-                    obj.SetActive(true);
-            }
+                if (obj != null) obj.SetActive(true);
         }
 
         foreach (var renderer in childRenderers)
-        {
             renderer.color = Color.white;
-        }
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
+        isDead = true;
         Debug.Log("Enemy Died!");
+
+        // Disable colliders and other components
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        // Fade and move upwards
+        float timer = 0f;
+        SpriteRenderer[] renderers = GetComponentsInChildren<SpriteRenderer>();
+        Vector3 startPos = transform.position;
+
+        while (timer < deathFadeDuration)
+        {
+            float t = timer / deathFadeDuration;
+
+            foreach (var r in renderers)
+            {
+                if (r != null)
+                {
+                    Color c = r.color;
+                    r.color = new Color(c.r, c.g, c.b, 1f - t);
+                }
+            }
+
+            transform.position = Vector3.Lerp(startPos, startPos + deathMoveOffset, t);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Load next scene if set
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+
         Destroy(gameObject);
     }
 }

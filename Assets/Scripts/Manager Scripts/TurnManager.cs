@@ -32,6 +32,11 @@ public class TurnManager : MonoBehaviour
         ShowIndicator(playerTurnIndicator);
 
         Debug.Log("🔵 Player Turn Start");
+
+        // Tick player's buffs at the start of their turn
+        if (playerStats != null)
+            playerStats.TickBuffs();
+
         playerManager.StartTurn();
 
         if (endTurnButton != null)
@@ -45,9 +50,6 @@ public class TurnManager : MonoBehaviour
         Debug.Log("🔴 Player Turn End");
 
         if (playerStats != null)
-            playerStats.TickBuffs();
-
-        if (playerStats != null)
         {
             playerStats.GainEnergy();
             Debug.Log($"➕ Gained {playerStats.energyGained} energy");
@@ -56,9 +58,10 @@ public class TurnManager : MonoBehaviour
         if (endTurnButton != null)
             endTurnButton.interactable = false;
 
-        // 🔥 Enemy turn indicator
+        // Show enemy turn indicator
         ShowIndicator(enemyTurnIndicator);
 
+        // Start enemy turn
         StartCoroutine(enemyManager.StartEnemyTurn(() =>
         {
             StartPlayerTurn();

@@ -33,8 +33,6 @@ public class EnemyCardBehaviour : MonoBehaviour
         yield return new WaitUntil(() => !isPlayingCard);
         isPlayingCard = true;
 
-        Debug.Log($"Enemy preparing to play {cardStats.cardName}...");
-
         yield return new WaitForSeconds(playDelay);
 
         PlayCard(FindObjectOfType<PlayerHealth>()?.gameObject);
@@ -57,34 +55,46 @@ public class EnemyCardBehaviour : MonoBehaviour
         {
             PlayerHealth player = target.GetComponent<PlayerHealth>();
             PlayerStats stats = target.GetComponent<PlayerStats>();
+            EnemyStats enemyStats = FindObjectOfType<EnemyStats>();
 
+            int enemyAttackBonus = enemyStats != null ? enemyStats.attackBonus : 0;
+            int playerDefense = stats != null ? stats.defence : 0;
+
+            int totalDamage = Mathf.Max(0, (cardStats.damageValue + enemyAttackBonus) - playerDefense);
             if (player != null)
-            {
-                int defense = stats != null ? stats.defence : 0;
-                int finalDamage = Mathf.Max(0, cardStats.damageValue - defense);
+                player.TakeDamage(totalDamage);
 
-                player.TakeDamage(finalDamage);
-                Debug.Log($"💢 Enemy dealt {finalDamage} (Base {cardStats.damageValue} - Defense {defense}).");
-            }
+            Debug.Log($"💥 Enemy dealt {totalDamage} (Base {cardStats.damageValue} + EnemyAtkBonus {enemyAttackBonus} - PlayerDef {playerDefense})");
         }
 
         // --- Heal ---
         if (cardStats.canHeal)
         {
-            EnemyHealth self = GetComponent<EnemyHealth>();
-            if (self != null)
+            // Find the actual enemy in the scene to heal
+            EnemyHealth enemyHealth = FindObjectOfType<EnemyHealth>();
+            if (enemyHealth != null)
             {
-                self.Heal(cardStats.healValue);
+                enemyHealth.Heal(cardStats.healValue);
+                Debug.Log($"💚 Enemy healed by {cardStats.healValue}");
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ No EnemyHealth found in scene to heal!");
             }
         }
 
-        // --- Buff (placeholder for future enemy buffs) ---
+        // --- Buff ---
         if (cardStats.canBuff)
         {
-            Debug.Log($"Enemy applied buff of {cardStats.buffValue}");
+            EnemyStats stats = FindObjectOfType<EnemyStats>();
+            if (stats != null)
+            {
+                bool isAttackBuff = true; // or cardStats.buffIsAttack if you have it
+                stats.ApplyBuff(isAttackBuff, cardStats.buffValue, cardStats.buffDuration);
+            }
         }
 
-        // --- Draw card (if AI deck) ---
+        // --- Draw ---
         if (cardStats.canDrawCard)
         {
             Debug.Log($"Enemy draws {cardStats.drawCount} card(s).");

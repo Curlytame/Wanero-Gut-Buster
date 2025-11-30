@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -13,7 +14,16 @@ public class EnemyStats : MonoBehaviour
     public int maxEnergy = 3;
     public int currentEnergy = 3;
 
-    // Property wrapper for safe access
+    [System.Serializable]
+    public class BuffData
+    {
+        public bool isAttackBuff;
+        public int amount;
+        public int remainingTurns;
+    }
+
+    public List<BuffData> activeBuffs = new List<BuffData>();
+
     public int currentHealth
     {
         get => _currentHealth;
@@ -22,7 +32,6 @@ public class EnemyStats : MonoBehaviour
 
     private void Awake()
     {
-        // Ensure current health is valid at start
         if (_currentHealth <= 0 || _currentHealth > maxHealth)
             _currentHealth = maxHealth;
     }
@@ -30,5 +39,48 @@ public class EnemyStats : MonoBehaviour
     public void ModifyHealth(int amount)
     {
         currentHealth += amount;
+    }
+
+    // Apply buff
+    public void ApplyBuff(bool isAttackBuff, int amount, int duration)
+    {
+        if (isAttackBuff)
+            attackBonus += amount;
+        else
+            defense += amount;
+
+        activeBuffs.Add(new BuffData
+        {
+            isAttackBuff = isAttackBuff,
+            amount = amount,
+            remainingTurns = duration
+        });
+
+        Debug.Log($"🟢 Enemy gained {(isAttackBuff ? "Attack" : "Defense")} buff +{amount} for {duration} turns.");
+    }
+
+    // Tick buffs durations
+    public void TickBuffDurations()
+    {
+        for (int i = activeBuffs.Count - 1; i >= 0; i--)
+        {
+            activeBuffs[i].remainingTurns--;
+
+            if (activeBuffs[i].remainingTurns <= 0)
+            {
+                if (activeBuffs[i].isAttackBuff)
+                {
+                    attackBonus -= activeBuffs[i].amount;
+                    Debug.Log($"🔻 Enemy attack buff expired (-{activeBuffs[i].amount})");
+                }
+                else
+                {
+                    defense -= activeBuffs[i].amount;
+                    Debug.Log($"🔻 Enemy defense buff expired (-{activeBuffs[i].amount})");
+                }
+
+                activeBuffs.RemoveAt(i);
+            }
+        }
     }
 }

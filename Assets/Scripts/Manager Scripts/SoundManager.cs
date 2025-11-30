@@ -9,6 +9,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip enemyAttackSound;
     public AudioClip fireEffectSound;
 
+    [Header("Card / Fusion Sounds")]
+    public AudioClip cardDrawSound;          // NEW
+    public AudioClip fusionSuccessSound;     // NEW
+    public AudioClip invalidFusionSound;     // NEW
+
     [Header("Settings")]
     public float volume = 1f;
 

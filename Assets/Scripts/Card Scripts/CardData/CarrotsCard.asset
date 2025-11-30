@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 'Carrots
 
 '
-  cardTag: Vegtable
+  cardTag: vegetables
   energyCost: 1
   canGainEnergy: 0
   energyGainAmount: 0
