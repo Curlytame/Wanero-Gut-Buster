@@ -24,5 +24,4 @@ MonoBehaviour:
   buffDuration: 2
   canDrawCard: 0
   drawCount: 0
-  useChance: 0.5
-  playDelay: 0.5
+  cardType: 1

@@ -7,8 +7,11 @@ public class EnemyManager : MonoBehaviour
 {
     [Header("Enemy Settings")]
     public EnemyStats enemyStats;
-    public Transform cardPlayArea;
+    public Transform cardPlayArea; 
     public List<GameObject> enemyCardPrefabs;
+
+    [Header("Behavior Tree Reference")]
+    public EnemyAI_BehaviorTree behaviorTree;   // Drag Behavior Tree object here
 
     [Header("Visual Effects")]
     public GameObject cardPlayEffectPrefab;
@@ -18,99 +21,123 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Timing")]
     public float startTurnDelay = 1f;
-    public float cardPlayInterval = 1f;
+    public float actionInterval = 1f;
 
     [Header("UI")]
     public TextMeshProUGUI energyText;
 
+    // ---------------------- TURN LOGIC ----------------------
     public IEnumerator StartEnemyTurn(System.Action onTurnEnd)
     {
         Debug.Log("🔴 Enemy Turn Start");
 
-        // Tick buffs at the start of enemy turn
         if (enemyStats != null)
+        {
             enemyStats.TickBuffDurations();
+            enemyStats.currentEnergy = enemyStats.maxEnergy;
+            UpdateEnergyUI();
+        }
 
         yield return new WaitForSeconds(startTurnDelay);
 
-        // Reset energy
-        enemyStats.currentEnergy = enemyStats.maxEnergy;
-        UpdateEnergyUI();
-        Debug.Log($"Enemy Energy Reset: {enemyStats.currentEnergy}/{enemyStats.maxEnergy}");
-
-        // Play cards
-        foreach (var cardPrefab in enemyCardPrefabs)
+        if (behaviorTree == null)
         {
-            if (enemyStats.currentEnergy <= 0)
-            {
-                Debug.Log("Enemy ran out of energy!");
-                break;
-            }
-
-            EnemyCardBehaviour cardBehaviour = cardPrefab.GetComponent<EnemyCardBehaviour>();
-            if (cardBehaviour == null || cardBehaviour.cardStats == null)
-                continue;
-
-            int cost = cardBehaviour.cardStats.energyCost;
-
-            if (enemyStats.currentEnergy < cost)
-            {
-                Debug.Log($"⚠️ Not enough energy for {cardBehaviour.cardStats.cardName} (Cost: {cost})");
-                continue;
-            }
-
-            enemyStats.currentEnergy -= cost;
-            UpdateEnergyUI();
-            Debug.Log($"Enemy plays {cardBehaviour.cardStats.cardName}  (Cost: {cost}) | Remaining Energy: {enemyStats.currentEnergy}");
-
-            // Spawn card
-            GameObject cardInstance = Instantiate(cardPrefab, cardPlayArea.position, Quaternion.identity);
-
-            // Spawn effect
-            if (cardPlayEffectPrefab != null && effectSpawnPoint != null)
-                StartCoroutine(SpawnCardEffect(effectSpawnPoint.position));
-
-            yield return new WaitForSeconds(cardPlayInterval);
+            Debug.LogError("❌ Behavior Tree is NOT assigned in EnemyManager");
+            onTurnEnd?.Invoke();
+            yield break;
         }
 
-        Debug.Log("🔴 Enemy Turn End");
+        // Run Behavior Tree while enemy has energy
+        while (enemyStats.currentEnergy > 0)
+        {
+            behaviorTree.RunTree(); // This should trigger AI nodes
+            yield return new WaitForSeconds(actionInterval);
 
-        // Optional: Tick buffs again at the end of turn
+            // Safety check: stop if no cards can be played
+            if (!HasAttackCard() && !HasBuffCard())
+                break;
+        }
+
         if (enemyStats != null)
             enemyStats.TickBuffDurations();
 
         yield return new WaitForSeconds(1f);
 
+        Debug.Log("⚪ Enemy Turn End");
         onTurnEnd?.Invoke();
     }
 
-    private IEnumerator SpawnCardEffect(Vector3 spawnPos)
+    // ---------------------- BEHAVIOR TREE HELPERS ----------------------
+    public bool HasBuffCard()
     {
-        GameObject effect = Instantiate(cardPlayEffectPrefab, spawnPos, Quaternion.identity);
-        SpriteRenderer sr = effect.GetComponent<SpriteRenderer>();
-        Color startColor = sr != null ? sr.color : Color.white;
-
-        if (SoundManager.Instance != null)
-            SoundManager.Instance.PlaySound(SoundManager.Instance.fireEffectSound);
-
-        float timer = 0f;
-        while (timer < effectFadeDuration)
+        foreach (Transform child in cardPlayArea)
         {
-            effect.transform.position += Vector3.up * effectRiseSpeed * Time.deltaTime;
-
-            if (sr != null)
-                sr.color = new Color(startColor.r, startColor.g, startColor.b, Mathf.Lerp(1f, 0f, timer / effectFadeDuration));
-
-            timer += Time.deltaTime;
-            yield return null;
+            EnemyCardBehaviour card = child.GetComponent<EnemyCardBehaviour>();
+            if (card != null && card.cardStats != null &&
+                card.cardStats.cardType == EnemyCardType.Buff &&
+                enemyStats.currentEnergy >= card.cardStats.energyCost)
+                return true;
         }
-
-        Destroy(effect);
+        return false;
     }
 
+    public bool HasAttackCard()
+    {
+        foreach (Transform child in cardPlayArea)
+        {
+            EnemyCardBehaviour card = child.GetComponent<EnemyCardBehaviour>();
+            if (card != null && card.cardStats != null &&
+                card.cardStats.cardType == EnemyCardType.Attack &&
+                enemyStats.currentEnergy >= card.cardStats.energyCost)
+                return true;
+        }
+        return false;
+    }
+
+    public void UseBuffCard()
+    {
+        for (int i = 0; i < cardPlayArea.childCount; i++)
+        {
+            Transform child = cardPlayArea.GetChild(i);
+            EnemyCardBehaviour card = child.GetComponent<EnemyCardBehaviour>();
+
+            if (card != null && card.cardStats != null &&
+                card.cardStats.cardType == EnemyCardType.Buff &&
+                enemyStats.currentEnergy >= card.cardStats.energyCost)
+            {
+                enemyStats.currentEnergy -= card.cardStats.energyCost;
+                UpdateEnergyUI();
+                Debug.Log($"💠 Played Buff Card: {card.cardStats.cardName}");
+                Destroy(child.gameObject); // Remove card from hand
+                break;
+            }
+        }
+    }
+
+    public void PlayAttackCard()
+    {
+        for (int i = 0; i < cardPlayArea.childCount; i++)
+        {
+            Transform child = cardPlayArea.GetChild(i);
+            EnemyCardBehaviour card = child.GetComponent<EnemyCardBehaviour>();
+
+            if (card != null && card.cardStats != null &&
+                card.cardStats.cardType == EnemyCardType.Attack &&
+                enemyStats.currentEnergy >= card.cardStats.energyCost)
+            {
+                enemyStats.currentEnergy -= card.cardStats.energyCost;
+                UpdateEnergyUI();
+                Debug.Log($"⚔️ Played Attack Card: {card.cardStats.cardName}");
+                Destroy(child.gameObject); // Remove card from hand
+                break;
+            }
+        }
+    }
+
+    // ---------------------- VFX + SPAWN ----------------------
     private void UpdateEnergyUI()
     {
-        if (energyText != null)
+        if (energyText != null && enemyStats != null)
             energyText.text = $"Enemy Energy: {enemyStats.currentEnergy} / {enemyStats.maxEnergy}";
     }
 }

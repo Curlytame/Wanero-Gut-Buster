@@ -14,13 +14,13 @@ public class EnemyCardBehaviour : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private static bool isPlayingCard = false;
 
-    private void Start()
+    void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         if (cardStats == null)
         {
-            Debug.LogWarning($"⚠️ EnemyCardStats not assigned to {gameObject.name}");
+            Debug.LogWarning($"⚠️ Wala pang CardStats sa {gameObject.name}");
             Destroy(gameObject);
             return;
         }
@@ -48,9 +48,9 @@ public class EnemyCardBehaviour : MonoBehaviour
 
     public void PlayCard(GameObject target = null)
     {
-        Debug.Log($"{cardStats.cardName} played! Cost: {cardStats.energyCost}");
+        Debug.Log($"{cardStats.cardName} na-play na! Cost: {cardStats.energyCost}");
 
-        // --- Damage ---
+        // Damage logic
         if (cardStats.canDamage && target != null && target.CompareTag("Player"))
         {
             PlayerHealth player = target.GetComponent<PlayerHealth>();
@@ -61,40 +61,34 @@ public class EnemyCardBehaviour : MonoBehaviour
             int playerDefense = stats != null ? stats.defence : 0;
 
             int totalDamage = Mathf.Max(0, (cardStats.damageValue + enemyAttackBonus) - playerDefense);
-            if (player != null)
-                player.TakeDamage(totalDamage);
+            player?.TakeDamage(totalDamage);
 
-            Debug.Log($"💥 Enemy dealt {totalDamage} (Base {cardStats.damageValue} + EnemyAtkBonus {enemyAttackBonus} - PlayerDef {playerDefense})");
+            Debug.Log($"💥 Damage dealt: {totalDamage} (Base {cardStats.damageValue} + EnemyAtkBonus {enemyAttackBonus} - PlayerDef {playerDefense})");
         }
 
-        // --- Heal ---
+        // Heal logic
         if (cardStats.canHeal)
         {
-            // Find the actual enemy in the scene to heal
             EnemyHealth enemyHealth = FindObjectOfType<EnemyHealth>();
             if (enemyHealth != null)
             {
                 enemyHealth.Heal(cardStats.healValue);
-                Debug.Log($"💚 Enemy healed by {cardStats.healValue}");
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ No EnemyHealth found in scene to heal!");
+                Debug.Log($"💚 Enemy healed {cardStats.healValue}");
             }
         }
 
-        // --- Buff ---
+        // Buff logic
         if (cardStats.canBuff)
         {
             EnemyStats stats = FindObjectOfType<EnemyStats>();
             if (stats != null)
             {
-                bool isAttackBuff = true; // or cardStats.buffIsAttack if you have it
+                bool isAttackBuff = true; 
                 stats.ApplyBuff(isAttackBuff, cardStats.buffValue, cardStats.buffDuration);
             }
         }
 
-        // --- Draw ---
+        // Draw logic
         if (cardStats.canDrawCard)
         {
             Debug.Log($"Enemy draws {cardStats.drawCount} card(s).");

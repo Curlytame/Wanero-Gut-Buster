@@ -19,12 +19,19 @@ public class EnemyCardStats : ScriptableObject
 
     public bool canBuff;
     public int buffValue;
-    public int buffDuration = 2; // 🟩 Buff duration in turns
+    public int buffDuration = 2;
 
     public bool canDrawCard;
     public int drawCount;
 
-    [Header("AI Settings")]
-    [Range(0f, 1f)] public float useChance = 1f;
-    public float playDelay = 0.5f;
+    [Header("Card Type")]
+    public EnemyCardType cardType;
+}
+
+public enum EnemyCardType
+{
+    Attack,
+    Heal,
+    Buff,
+    Debuff
 }

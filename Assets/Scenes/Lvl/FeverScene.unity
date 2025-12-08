@@ -2151,6 +2151,7 @@ GameObject:
   - component: {fileID: 726206652}
   - component: {fileID: 726206651}
   - component: {fileID: 726206650}
+  - component: {fileID: 726206653}
   m_Layer: 0
   m_Name: TurnManager
   m_TagString: Untagged
@@ -2192,12 +2193,13 @@ MonoBehaviour:
   - {fileID: 846107169284266744, guid: 17fd7bed29250a84fbdfdf72b7a08280, type: 3}
   - {fileID: 846107169284266744, guid: 5d44e947050d4ee4894f3d2888c09b80, type: 3}
   - {fileID: 846107169284266744, guid: 2e497551a5df651489828a62f6770453, type: 3}
+  behaviorTree: {fileID: 0}
   cardPlayEffectPrefab: {fileID: 3120748848137098391, guid: c96d14d462cb1e14880f40c6eb874864, type: 3}
   effectSpawnPoint: {fileID: 418353412}
   effectRiseSpeed: 0.5
   effectFadeDuration: 1
   startTurnDelay: 2.6
-  cardPlayInterval: 3
+  actionInterval: 1
   energyText: {fileID: 825562646}
 --- !u!114 &726206651
 MonoBehaviour:
@@ -2234,6 +2236,22 @@ MonoBehaviour:
   playerTurnIndicator: {fileID: 1382411431}
   enemyTurnIndicator: {fileID: 1836646184}
   indicatorDuration: 2.5
+--- !u!114 &726206653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726206648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedEditorNode: {fileID: 0}
+  repeatOnFinish: 0
+  maxExecutionsPerTick: 1000
+  parent: {fileID: 0}
 --- !u!1 &744585030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,14 +2373,14 @@ RectTransform:
   m_GameObject: {fileID: 825562643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.4700494}
-  m_LocalScale: {x: 0.49439654, y: 0.49439654, z: 0.49439654}
+  m_LocalScale: {x: 0.28464386, y: 0.28464386, z: 0.28464386}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1034407425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.01, y: 44.72}
+  m_AnchoredPosition: {x: -1.9, y: 44.72}
   m_SizeDelta: {x: 260.31, y: 62.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &825562645
@@ -3376,6 +3394,7 @@ MonoBehaviour:
   currentHealth: 0
   healthSlider: {fileID: 929263260}
   healthText: {fileID: 1252004165}
+  deathSceneName: 
 --- !u!4 &1040450595
 Transform:
   m_ObjectHideFlags: 0
@@ -6194,6 +6213,7 @@ GameObject:
   - component: {fileID: 1889017632}
   - component: {fileID: 1889017637}
   - component: {fileID: 1889017639}
+  - component: {fileID: 1889017640}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -6443,6 +6463,19 @@ MonoBehaviour:
   maxEnergy: 3
   currentEnergy: 3
   activeBuffs: []
+--- !u!114 &1889017640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889017631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5845a55478e734e93a1d9981fd74c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 726206650}
 --- !u!1 &1895948698
 GameObject:
   m_ObjectHideFlags: 0
