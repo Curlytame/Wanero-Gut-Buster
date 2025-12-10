@@ -1,15 +1,22 @@
-using UnityEngine;
 using EnemyAI_BT;
 
 public class EnemyAttackNode : Node
 {
-    private EnemyManager enemy;
-    public EnemyAttackNode(EnemyManager enemy) { this.enemy = enemy; }
+    private EnemyManager _enemy;
+
+    public EnemyAttackNode(EnemyManager enemy)
+    {
+        _enemy = enemy;
+    }
 
     public override NodeState Evaluate()
     {
-        enemy.PlayAttackCard();
-        _state = NodeState.SUCCESS;
-        return _state;
+        if (_enemy.HasAttackCardInHand())
+        {
+            _enemy.PlayAttackCardFromHand(); // Play attack card from hand
+            return NodeState.SUCCESS;
+        }
+
+        return NodeState.FAILURE;
     }
 }

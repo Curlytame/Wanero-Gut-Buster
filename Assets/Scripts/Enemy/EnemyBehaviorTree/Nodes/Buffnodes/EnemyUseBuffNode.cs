@@ -1,17 +1,22 @@
-using UnityEngine;
+using EnemyAI_BT;
 
-namespace EnemyAI_BT
+public class EnemyUseBuffNode : Node
 {
-    public class EnemyUseBuffNode : Node
-    {
-        private EnemyManager enemy;
-        public EnemyUseBuffNode(EnemyManager enemy) { this.enemy = enemy; }
+    private EnemyManager _enemy;
 
-        public override NodeState Evaluate()
+    public EnemyUseBuffNode(EnemyManager enemy)
+    {
+        _enemy = enemy;
+    }
+
+    public override NodeState Evaluate()
+    {
+        if (_enemy.HasBuffCardInHand())
         {
-            enemy.UseBuffCard(); // Make sure EnemyManager has this function
-            _state = NodeState.SUCCESS;
-            return _state;
+            _enemy.UseBuffCardFromHand(); // Use the card from hand
+            return NodeState.SUCCESS;
         }
+
+        return NodeState.FAILURE;
     }
 }

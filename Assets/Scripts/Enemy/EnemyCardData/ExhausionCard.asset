@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf316d10614dd34abe1a398d3065ca3, type: 3}
   m_Name: ExhausionCard
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Heal
   description: heal and buff
   energyCost: 1
   canDamage: 0

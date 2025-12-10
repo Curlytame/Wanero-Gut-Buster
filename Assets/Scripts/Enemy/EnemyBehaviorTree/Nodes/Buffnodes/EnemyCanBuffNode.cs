@@ -1,13 +1,20 @@
 using EnemyAI_BT;
 
-public class EnemyCanUseBuffNode : Node
+public class EnemyCanBuffNode : Node
 {
-    private EnemyManager enemy;
-    public EnemyCanUseBuffNode(EnemyManager enemy) { this.enemy = enemy; }
+    private EnemyManager _enemy;
+
+    public EnemyCanBuffNode(EnemyManager enemy)
+    {
+        _enemy = enemy;
+    }
 
     public override NodeState Evaluate()
     {
-        _state = enemy.HasBuffCard() ? NodeState.SUCCESS : NodeState.FAILURE;
-        return _state;
+        if (_enemy.HasBuffCardInHand()) // Updated method for cards in hand
+        {
+            return NodeState.SUCCESS;
+        }
+        return NodeState.FAILURE;
     }
 }

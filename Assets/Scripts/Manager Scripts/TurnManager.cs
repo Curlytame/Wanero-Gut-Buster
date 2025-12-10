@@ -16,7 +16,7 @@ public class TurnManager : MonoBehaviour
     [Header("Turn Indicators")]
     public GameObject playerTurnIndicator;
     public GameObject enemyTurnIndicator;
-    public float indicatorDuration = 1f;   // how long to show
+    public float indicatorDuration = 1f;
 
     private void Start()
     {
@@ -24,6 +24,9 @@ public class TurnManager : MonoBehaviour
             endTurnButton.onClick.AddListener(EndPlayerTurn);
 
         StartPlayerTurn();
+
+        // Prepare first enemy preview
+        enemyManager.GenerateNextHandPreview();
     }
 
     private void StartPlayerTurn()
@@ -33,7 +36,6 @@ public class TurnManager : MonoBehaviour
 
         Debug.Log("🔵 Player Turn Start");
 
-        // Tick player's buffs at the start of their turn
         if (playerStats != null)
             playerStats.TickBuffs();
 
@@ -58,17 +60,15 @@ public class TurnManager : MonoBehaviour
         if (endTurnButton != null)
             endTurnButton.interactable = false;
 
-        // Show enemy turn indicator
         ShowIndicator(enemyTurnIndicator);
 
-        // Start enemy turn
         StartCoroutine(enemyManager.StartEnemyTurn(() =>
         {
+            enemyManager.GenerateNextHandPreview();
             StartPlayerTurn();
         }));
     }
 
-    // 🔵 Show indicator briefly
     private void ShowIndicator(GameObject indicator)
     {
         if (indicator == null) return;
