@@ -13,6 +13,17 @@ public class Card : MonoBehaviour
     private bool isDragging = false;
     public float blinkSpeed = 1.5f;
 
+    [Header("Card Description Preview (NEW)")]
+    public GameObject descriptionPrefab;   
+    private GameObject descriptionInstance;
+
+    [Tooltip("Assign: CardStatsPreviewPos (GameObject)")]
+    public Transform descriptionSpawnPoint;  // <-- inspector assignable
+
+    [Header("Slide Settings")]
+    public Vector3 slideOffset = new Vector3(-2f, 0, 0); // START LEFT → slide to spawn point
+    public float slideSpeed = 8f;  // adjustable in inspector
+
     private void Start()
     {
         col = GetComponent<Collider2D>();
@@ -21,7 +32,6 @@ public class Card : MonoBehaviour
         if (handManager != null)
             originalIndex = handManager.GetCardIndex(this);
 
-        // 🔵 Automatically find "TargetGroup" in the *scene*
         GameObject group = GameObject.Find("TargetGroup");
 
         if (group != null)
@@ -34,10 +44,28 @@ public class Card : MonoBehaviour
         }
 
         ShowIndicators(false);
+
+        // Auto-find ONLY if not manually assigned
+        if (descriptionSpawnPoint == null)
+        {
+            GameObject previewObj = GameObject.Find("CardStatsPreviewPos");
+            if (previewObj != null)
+                descriptionSpawnPoint = previewObj.transform;
+        }
     }
 
     private void Update()
     {
+        if (descriptionInstance != null && isDragging)
+        {
+            descriptionInstance.transform.position =
+                Vector3.Lerp(
+                    descriptionInstance.transform.position,
+                    descriptionSpawnPoint.position,
+                    Time.deltaTime * slideSpeed
+                );
+        }
+
         if (isDragging && targetIndicators != null)
         {
             float alpha = (Mathf.Sin(Time.time * blinkSpeed) + 1f) * 0.5f;
@@ -94,7 +122,10 @@ public class Card : MonoBehaviour
             originalIndex = handManager.GetCardIndex(this);
             handManager.RemoveCardFromHand(this);
         }
+
         transform.SetParent(null);
+
+        SpawnDescriptionPanel();
     }
 
     private void OnMouseDrag()
@@ -106,6 +137,8 @@ public class Card : MonoBehaviour
     {
         isDragging = false;
         ShowIndicators(false);
+
+        DestroyDescriptionPanel();
 
         col.enabled = false;
         Collider2D hit = Physics2D.OverlapPoint(transform.position);
@@ -137,5 +170,29 @@ public class Card : MonoBehaviour
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0f;
         return pos;
+    }
+
+    // ---------------------------------------------------------
+    // 🔵 DESCRIPTION PANEL
+    // ---------------------------------------------------------
+    private void SpawnDescriptionPanel()
+    {
+        if (descriptionPrefab == null || descriptionSpawnPoint == null)
+            return;
+
+        if (descriptionInstance != null)
+            Destroy(descriptionInstance);
+
+        descriptionInstance = Instantiate(descriptionPrefab);
+
+        // Start LEFT → slide RIGHT to descriptionSpawnPoint
+        descriptionInstance.transform.position =
+            descriptionSpawnPoint.position + slideOffset;
+    }
+
+    private void DestroyDescriptionPanel()
+    {
+        if (descriptionInstance != null)
+            Destroy(descriptionInstance);
     }
 }

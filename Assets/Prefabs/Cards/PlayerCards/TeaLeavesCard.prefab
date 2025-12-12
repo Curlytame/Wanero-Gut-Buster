@@ -247,6 +247,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 2
+  descriptionPrefab: {fileID: 2831604629508282035, guid: 1bdf5640d92e3424ca51c51fb4571756, type: 3}
+  descriptionSpawnPoint: {fileID: 0}
+  slideOffset: {x: 10, y: 0, z: 0}
+  slideSpeed: 10
 --- !u!114 &7648023995420029308
 MonoBehaviour:
   m_ObjectHideFlags: 0
