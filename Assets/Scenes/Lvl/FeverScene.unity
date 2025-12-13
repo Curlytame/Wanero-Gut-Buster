@@ -6972,8 +6972,13 @@ MonoBehaviour:
   - {fileID: 846107169284266744, guid: 17fd7bed29250a84fbdfdf72b7a08280, type: 3}
   - {fileID: 846107169284266744, guid: 2e497551a5df651489828a62f6770453, type: 3}
   - {fileID: 846107169284266744, guid: 5d44e947050d4ee4894f3d2888c09b80, type: 3}
+  enemyCardPreviewPrefabs:
+  - {fileID: 3634205617607523905, guid: 8567fb860edc91f40843423cfaada9b7, type: 3}
+  - {fileID: 8669557346978728666, guid: 117f01fcff94ca043bde48eb57b6b3ca, type: 3}
+  - {fileID: 801050887666213713, guid: 14012d7bf0b9f9245a5587159570322a, type: 3}
+  - {fileID: 4235052388363230578, guid: 48a988ffcc3b4cd40ad3300a453eadc5, type: 3}
   startingHandSize: 5
-  enemyHand: []
+  enemyHandIndexes: 
 --- !u!1 &1895948698
 GameObject:
   m_ObjectHideFlags: 0
