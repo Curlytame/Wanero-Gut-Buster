@@ -59,6 +59,19 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    // Remove a single preview when a card is played
+    private void RemovePreviewForCard(GameObject prefab)
+    {
+        int index = handManager.enemyCardPrefabs.IndexOf(prefab);
+        if (index < 0 || index >= previewInstances.Count) return;
+
+        GameObject previewToRemove = previewInstances[index];
+        if (previewToRemove != null)
+            Destroy(previewToRemove);
+
+        previewInstances.RemoveAt(index);
+    }
+
     private void ClearPreviewUI()
     {
         foreach (GameObject g in previewInstances)
@@ -67,7 +80,7 @@ public class EnemyManager : MonoBehaviour
         previewInstances.Clear();
     }
 
-    // ================= TURN LOGIC (UNCHANGED) =================
+    // ================= TURN LOGIC =================
 
     public IEnumerator StartEnemyTurn(System.Action onTurnEnd)
     {
@@ -80,7 +93,6 @@ public class EnemyManager : MonoBehaviour
             UpdateEnergyUI();
         }
 
-        ClearPreviewUI();
         yield return new WaitForSeconds(startTurnDelay);
 
         if (behaviorTree == null)
@@ -107,7 +119,7 @@ public class EnemyManager : MonoBehaviour
         onTurnEnd?.Invoke();
     }
 
-    // ================= BEHAVIOR TREE HELPERS (UNCHANGED) =================
+    // ================= BEHAVIOR TREE HELPERS =================
 
     public bool HasBuffCardInHand()
     {
@@ -141,6 +153,9 @@ public class EnemyManager : MonoBehaviour
 
         Instantiate(prefab, cardPlayArea.position, Quaternion.identity);
         handManager.RemoveCardFromHand(prefab);
+
+        // Remove the preview for this card
+        RemovePreviewForCard(prefab);
 
         if (cardPlayEffectPrefab != null && effectSpawnPoint != null)
             StartCoroutine(SpawnCardEffect(effectSpawnPoint.position));
