@@ -26,56 +26,54 @@ public class EnemyManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI energyText;
 
-    [Header("Card Preview (NEW)")]
-    public Transform previewAreaParent;           // empty GameObject where previews spawn
-    public List<GameObject> enemyPreviewPrefabs;  // ⭐ list of preview prefabs (visuals only)
+    [Header("Enemy Hand Preview")]
+    public Transform previewAreaParent;
     public float previewSpacing = 2f;
 
-    private readonly List<GameObject> previewInstances = new List<GameObject>();
+    private readonly List<GameObject> previewInstances = new();
 
-    // ---------------------- TURN LOGIC ----------------------
+    // ================= PREVIEW LOGIC =================
+
     public void GenerateNextHandPreview()
     {
         if (handManager == null) return;
 
         handManager.DrawHandForNextTurn();
-        SpawnPreviewHandUI();
+        SpawnPreviewFromEnemyHand();
     }
 
-    private void SpawnPreviewHandUI()
+    private void SpawnPreviewFromEnemyHand()
     {
         ClearPreviewUI();
 
         if (previewAreaParent == null) return;
-        if (handManager.enemyHand.Count == 0) return;
 
         for (int i = 0; i < handManager.enemyHand.Count; i++)
         {
-            GameObject playableCardPrefab = handManager.enemyHand[i];
-            if (playableCardPrefab == null) continue;
-
-            // 🔹 Use preview prefab by position (i)
-            if (i >= enemyPreviewPrefabs.Count)
-            {
-                Debug.LogWarning($"No preview prefab assigned for card index {i}, skipping preview");
-                continue;
-            }
-
-            GameObject previewPrefab = enemyPreviewPrefabs[i];
+            GameObject cardPrefab = handManager.enemyHand[i];
+            if (cardPrefab == null) continue;
 
             Vector3 pos = previewAreaParent.position + new Vector3(i * previewSpacing, 0, 0);
-            GameObject instance = Instantiate(previewPrefab, pos, Quaternion.identity, previewAreaParent);
-            previewInstances.Add(instance);
+            GameObject preview = Instantiate(cardPrefab, pos, Quaternion.identity, previewAreaParent);
+
+            // 🔒 disable gameplay logic
+            EnemyCardBehaviour cardLogic = preview.GetComponent<EnemyCardBehaviour>();
+            if (cardLogic != null)
+                cardLogic.enabled = false;
+
+            previewInstances.Add(preview);
         }
     }
 
     private void ClearPreviewUI()
     {
-        foreach (GameObject g in previewInstances)
+        foreach (var g in previewInstances)
             if (g != null) Destroy(g);
 
         previewInstances.Clear();
     }
+
+    // ================= TURN LOGIC =================
 
     public IEnumerator StartEnemyTurn(System.Action onTurnEnd)
     {
@@ -88,7 +86,7 @@ public class EnemyManager : MonoBehaviour
             UpdateEnergyUI();
         }
 
-        // ✅ Remove preview, playable cards will be used now
+        // remove preview once enemy actually plays
         ClearPreviewUI();
 
         yield return new WaitForSeconds(startTurnDelay);
@@ -113,89 +111,62 @@ public class EnemyManager : MonoBehaviour
         if (enemyStats != null)
             enemyStats.TickBuffDurations();
 
-        yield return new WaitForSeconds(1f);
-
         Debug.Log("⚪ Enemy Turn End");
         onTurnEnd?.Invoke();
     }
 
-    // ---------------------- BEHAVIOR NODE HELPERS ----------------------
+    // ================= BEHAVIOR TREE HELPERS =================
+
     public bool HasBuffCardInHand()
     {
-        if (handManager == null || enemyStats == null) return false;
-        return handManager.HasPlayableBuff(enemyStats.currentEnergy);
+        return handManager != null && handManager.HasPlayableBuff(enemyStats.currentEnergy);
     }
 
     public bool HasAttackCardInHand()
     {
-        if (handManager == null || enemyStats == null) return false;
-        return handManager.HasPlayableAttack(enemyStats.currentEnergy);
+        return handManager != null && handManager.HasPlayableAttack(enemyStats.currentEnergy);
     }
 
     public void UseBuffCardFromHand()
     {
-        if (handManager == null || enemyStats == null) return;
-
-        GameObject prefab = handManager.GetPlayableBuffCard(enemyStats.currentEnergy);
-        if (prefab == null) return;
-
-        EnemyCardBehaviour cardComp = prefab.GetComponent<EnemyCardBehaviour>();
-        if (cardComp == null || cardComp.cardStats == null) return;
-
-        enemyStats.currentEnergy -= cardComp.cardStats.energyCost;
-        UpdateEnergyUI();
-
-        Vector3 spawnPos = cardPlayArea != null ? cardPlayArea.position : transform.position;
-        Instantiate(prefab, spawnPos, Quaternion.identity);
-
-        handManager.RemoveCardFromHand(prefab);
-
-        if (cardPlayEffectPrefab != null && effectSpawnPoint != null)
-            StartCoroutine(SpawnCardEffect(effectSpawnPoint.position));
-
-        Debug.Log($"💠 Enemy used buff card: {cardComp.cardStats.cardName}");
+        PlayCard(handManager.GetPlayableBuffCard(enemyStats.currentEnergy));
     }
 
     public void PlayAttackCardFromHand()
     {
-        if (handManager == null || enemyStats == null) return;
+        PlayCard(handManager.GetPlayableAttackCard(enemyStats.currentEnergy));
+    }
 
-        GameObject prefab = handManager.GetPlayableAttackCard(enemyStats.currentEnergy);
+    private void PlayCard(GameObject prefab)
+    {
         if (prefab == null) return;
 
-        EnemyCardBehaviour cardComp = prefab.GetComponent<EnemyCardBehaviour>();
-        if (cardComp == null || cardComp.cardStats == null) return;
+        EnemyCardBehaviour card = prefab.GetComponent<EnemyCardBehaviour>();
+        if (card == null || card.cardStats == null) return;
 
-        enemyStats.currentEnergy -= cardComp.cardStats.energyCost;
+        enemyStats.currentEnergy -= card.cardStats.energyCost;
         UpdateEnergyUI();
 
-        Vector3 spawnPos = cardPlayArea != null ? cardPlayArea.position : transform.position;
-        Instantiate(prefab, spawnPos, Quaternion.identity);
-
+        Instantiate(prefab, cardPlayArea.position, Quaternion.identity);
         handManager.RemoveCardFromHand(prefab);
 
         if (cardPlayEffectPrefab != null && effectSpawnPoint != null)
             StartCoroutine(SpawnCardEffect(effectSpawnPoint.position));
-
-        Debug.Log($"⚔️ Enemy played attack card: {cardComp.cardStats.cardName}");
     }
 
-    private IEnumerator SpawnCardEffect(Vector3 spawnPos)
+    private IEnumerator SpawnCardEffect(Vector3 pos)
     {
-        GameObject effect = Instantiate(cardPlayEffectPrefab, spawnPos, Quaternion.identity);
+        GameObject effect = Instantiate(cardPlayEffectPrefab, pos, Quaternion.identity);
         SpriteRenderer sr = effect.GetComponent<SpriteRenderer>();
-        Color startColor = sr != null ? sr.color : Color.white;
+        Color start = sr != null ? sr.color : Color.white;
 
-        float timer = 0f;
-        while (timer < effectFadeDuration)
+        float t = 0f;
+        while (t < effectFadeDuration)
         {
             effect.transform.position += Vector3.up * effectRiseSpeed * Time.deltaTime;
-
             if (sr != null)
-                sr.color = new Color(startColor.r, startColor.g, startColor.b,
-                    Mathf.Lerp(1f, 0f, timer / effectFadeDuration));
-
-            timer += Time.deltaTime;
+                sr.color = new Color(start.r, start.g, start.b, Mathf.Lerp(1f, 0f, t / effectFadeDuration));
+            t += Time.deltaTime;
             yield return null;
         }
         Destroy(effect);
@@ -204,6 +175,6 @@ public class EnemyManager : MonoBehaviour
     private void UpdateEnergyUI()
     {
         if (energyText != null && enemyStats != null)
-            energyText.text = $"Enemy Energy: {enemyStats.currentEnergy} / {enemyStats.maxEnergy}";
+            energyText.text = $"Enemy Energy: {enemyStats.currentEnergy}/{enemyStats.maxEnergy}";
     }
 }

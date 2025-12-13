@@ -102,8 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardStats: {fileID: 11400000, guid: d96e30341ecd51a429b3cd923a6a2d6e, type: 2}
   playDelay: 1
-  stayDuration: 1
-  fadeDuration: 0.5
+  stayDuration: 1.8
+  fadeDuration: 0.8
 --- !u!1 &862033984464152100
 GameObject:
   m_ObjectHideFlags: 0
