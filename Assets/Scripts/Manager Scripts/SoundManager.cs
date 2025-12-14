@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -8,20 +9,17 @@ public class SoundManager : MonoBehaviour
     public AudioSource bgSource;
     public AudioSource sfxSource;
 
-    // ---------------- OLD REQUIRED CLIPS (DO NOT REMOVE) ----------------
     [Header("Legacy Clips (Used by Existing Scripts)")]
     public AudioClip cardDrawSound;
     public AudioClip invalidFusionSound;
     public AudioClip fusionSuccessSound;
 
-    // ---------------- NEW CLIPS ----------------
     [Header("Combat & UI Clips")]
     public AudioClip playerAttackSound;
     public AudioClip enemyAttackSound;
     public AudioClip clickSound;
     public AudioClip backgroundMusic;
 
-    // ---------------- VOLUMES ----------------
     [Header("Volumes")]
     [Range(0f, 1f)] public float bgVolume = 0.5f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
@@ -40,10 +38,19 @@ public class SoundManager : MonoBehaviour
         PlayBackgroundMusic();
     }
 
-    // ---------------- LEGACY API (DO NOT BREAK) ----------------
+    private void Update()
+    {
+        // Play click sound globally on left mouse button
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayClick();
+        }
+    }
+
+    // ---------------- LEGACY API ----------------
     public void PlaySound(AudioClip clip)
     {
-        if (clip == null) return;
+        if (clip == null || sfxSource == null) return;
         sfxSource.PlayOneShot(clip, sfxVolume);
     }
 
@@ -65,11 +72,20 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBackgroundMusic()
     {
-        if (backgroundMusic == null) return;
+        if (bgSource == null || backgroundMusic == null) return;
 
-        bgSource.clip = backgroundMusic;
-        bgSource.loop = true;
-        bgSource.volume = bgVolume;
-        bgSource.Play();
+        if (!bgSource.isPlaying)
+        {
+            bgSource.clip = backgroundMusic;
+            bgSource.loop = true;
+            bgSource.volume = bgVolume;
+            bgSource.Play();
+        }
+    }
+
+    public void StopBackgroundMusic()
+    {
+        if (bgSource != null && bgSource.isPlaying)
+            bgSource.Stop();
     }
 }

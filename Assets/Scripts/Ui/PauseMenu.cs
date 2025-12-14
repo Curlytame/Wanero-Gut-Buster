@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
 
+        // Button listeners
         pauseButton.onClick.AddListener(TogglePause);
         resumeButton.onClick.AddListener(ResumeGame);
         settingsButton.onClick.AddListener(OpenSettings);
@@ -35,24 +36,45 @@ public class PauseMenu : MonoBehaviour
         settingsBackButton.onClick.AddListener(CloseSettings);
     }
 
-    void TogglePause()
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (settingsPanel.activeSelf)
+                CloseSettings();
+            else
+                TogglePause();
+        }
+    }
+
+    // -----------------------------
+    // Pause / Resume
+    // -----------------------------
+    public void TogglePause()
     {
         if (settingsPanel.activeSelf)
-            return; // Prevent pausing while inside settings
+            return;
 
         isPaused = !isPaused;
+        ApplyPauseState();
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        ApplyPauseState();
+    }
+
+    private void ApplyPauseState()
+    {
         pauseMenuPanel.SetActive(isPaused);
+        settingsPanel.SetActive(false);
         Time.timeScale = isPaused ? 0f : 1f;
     }
 
-    void ResumeGame()
-    {
-        isPaused = false;
-        pauseMenuPanel.SetActive(false);
-        settingsPanel.SetActive(false);
-        Time.timeScale = 1f;
-    }
-
+    // -----------------------------
+    // Settings
+    // -----------------------------
     void OpenSettings()
     {
         pauseMenuPanel.SetActive(false);
@@ -71,9 +93,17 @@ public class PauseMenu : MonoBehaviour
         AudioListener.volume = soundOn ? 1f : 0f;
     }
 
+    // -----------------------------
+    // Menu
+    // -----------------------------
     void ReturnToMenu()
     {
         Time.timeScale = 1f;
+
+        // Stop background music before leaving scene
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.StopBackgroundMusic();
+
         SceneManager.LoadScene("Menu");
     }
 }
