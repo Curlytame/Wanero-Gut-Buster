@@ -20,7 +20,7 @@ public class EnemyCardBehaviour : MonoBehaviour
 
         if (cardStats == null)
         {
-            Debug.LogWarning($"⚠️ Wala pang CardStats sa {gameObject.name}");
+            Debug.LogWarning($"⚠️ No CardStats on {gameObject.name}");
             Destroy(gameObject);
             return;
         }
@@ -48,50 +48,41 @@ public class EnemyCardBehaviour : MonoBehaviour
 
     public void PlayCard(GameObject target = null)
     {
-        Debug.Log($"{cardStats.cardName} na-play na! Cost: {cardStats.energyCost}");
+        Debug.Log($"{cardStats.cardName} played by enemy!");
 
-        // Damage logic
+        // --- DAMAGE PLAYER ---
         if (cardStats.canDamage && target != null && target.CompareTag("Player"))
         {
             PlayerHealth player = target.GetComponent<PlayerHealth>();
-            PlayerStats stats = target.GetComponent<PlayerStats>();
+            PlayerStats playerStats = target.GetComponent<PlayerStats>();
             EnemyStats enemyStats = FindObjectOfType<EnemyStats>();
 
-            int enemyAttackBonus = enemyStats != null ? enemyStats.attackBonus : 0;
-            int playerDefense = stats != null ? stats.defence : 0;
+            int enemyAtk = enemyStats != null ? enemyStats.attackBonus : 0;
+            int playerDef = playerStats != null ? playerStats.defence : 0;
 
-            int totalDamage = Mathf.Max(0, (cardStats.damageValue + enemyAttackBonus) - playerDefense);
+            int totalDamage = Mathf.Max(0, (cardStats.damageValue + enemyAtk) - playerDef);
             player?.TakeDamage(totalDamage);
 
-            Debug.Log($"💥 Damage dealt: {totalDamage} (Base {cardStats.damageValue} + EnemyAtkBonus {enemyAttackBonus} - PlayerDef {playerDefense})");
+            // 🔊 ENEMY ATTACK SOUND (FIX)
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlayEnemyAttack();
+
+            Debug.Log($"💥 Enemy dealt {totalDamage} damage");
         }
 
-        // Heal logic
+        // --- HEAL ENEMY ---
         if (cardStats.canHeal)
         {
             EnemyHealth enemyHealth = FindObjectOfType<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.Heal(cardStats.healValue);
-                Debug.Log($"💚 Enemy healed {cardStats.healValue}");
-            }
+            enemyHealth?.Heal(cardStats.healValue);
         }
 
-        // Buff logic
+        // --- BUFF ---
         if (cardStats.canBuff)
         {
             EnemyStats stats = FindObjectOfType<EnemyStats>();
             if (stats != null)
-            {
-                bool isAttackBuff = true; 
-                stats.ApplyBuff(isAttackBuff, cardStats.buffValue, cardStats.buffDuration);
-            }
-        }
-
-        // Draw logic
-        if (cardStats.canDrawCard)
-        {
-            Debug.Log($"Enemy draws {cardStats.drawCount} card(s).");
+                stats.ApplyBuff(true, cardStats.buffValue, cardStats.buffDuration);
         }
     }
 
@@ -100,16 +91,14 @@ public class EnemyCardBehaviour : MonoBehaviour
         if (spriteRenderer == null) yield break;
 
         Color startColor = spriteRenderer.color;
-        float elapsed = 0f;
+        float t = 0f;
 
-        while (elapsed < fadeDuration)
+        while (t < fadeDuration)
         {
-            float alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
-            spriteRenderer.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
-            elapsed += Time.deltaTime;
+            float a = Mathf.Lerp(1f, 0f, t / fadeDuration);
+            spriteRenderer.color = new Color(startColor.r, startColor.g, startColor.b, a);
+            t += Time.deltaTime;
             yield return null;
         }
-
-        spriteRenderer.color = new Color(startColor.r, startColor.g, startColor.b, 0f);
     }
 }

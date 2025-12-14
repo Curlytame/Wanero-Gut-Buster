@@ -4,24 +4,31 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    [Header("Sound Effects")]
+    [Header("Audio Sources")]
+    public AudioSource bgSource;
+    public AudioSource sfxSource;
+
+    // ---------------- OLD REQUIRED CLIPS (DO NOT REMOVE) ----------------
+    [Header("Legacy Clips (Used by Existing Scripts)")]
+    public AudioClip cardDrawSound;
+    public AudioClip invalidFusionSound;
+    public AudioClip fusionSuccessSound;
+
+    // ---------------- NEW CLIPS ----------------
+    [Header("Combat & UI Clips")]
     public AudioClip playerAttackSound;
     public AudioClip enemyAttackSound;
-    public AudioClip fireEffectSound;
+    public AudioClip clickSound;
+    public AudioClip backgroundMusic;
 
-    [Header("Card / Fusion Sounds")]
-    public AudioClip cardDrawSound;          // NEW
-    public AudioClip fusionSuccessSound;     // NEW
-    public AudioClip invalidFusionSound;     // NEW
-
-    [Header("Settings")]
-    public float volume = 1f;
-
-    private AudioSource audioSource;
+    // ---------------- VOLUMES ----------------
+    [Header("Volumes")]
+    [Range(0f, 1f)] public float bgVolume = 0.5f;
+    [Range(0f, 1f)] public float sfxVolume = 1f;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
@@ -30,14 +37,39 @@ public class SoundManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        audioSource.volume = volume;
+        PlayBackgroundMusic();
     }
 
+    // ---------------- LEGACY API (DO NOT BREAK) ----------------
     public void PlaySound(AudioClip clip)
     {
         if (clip == null) return;
-        audioSource.PlayOneShot(clip, volume);
+        sfxSource.PlayOneShot(clip, sfxVolume);
+    }
+
+    // ---------------- NEW API ----------------
+    public void PlayPlayerAttack()
+    {
+        PlaySound(playerAttackSound);
+    }
+
+    public void PlayEnemyAttack()
+    {
+        PlaySound(enemyAttackSound);
+    }
+
+    public void PlayClick()
+    {
+        PlaySound(clickSound);
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        if (backgroundMusic == null) return;
+
+        bgSource.clip = backgroundMusic;
+        bgSource.loop = true;
+        bgSource.volume = bgVolume;
+        bgSource.Play();
     }
 }

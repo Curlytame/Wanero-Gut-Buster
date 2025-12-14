@@ -7,67 +7,52 @@ public class CardBehaviour : MonoBehaviour
     [Header("Visual Effects")]
     public GameObject attackEffectPrefab;
 
+    private void OnMouseDown()
+    {
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlayClick();
+    }
+
     public void PlayCard(GameObject target = null)
     {
-        if (cardStats == null)
-        {
-            Debug.LogWarning("⚠️ CardStats not assigned!");
-            return;
-        }
-
-        Debug.Log($"{cardStats.cardName} played! Cost: {cardStats.energyCost}");
+        if (cardStats == null) return;
 
         PlayerStats playerStats = FindObjectOfType<PlayerStats>();
         GameManager gm = FindObjectOfType<GameManager>();
 
-        // --- Energy Gain (✅ NEW) ---
+        // --- ENERGY ---
         if (cardStats.canGainEnergy && playerStats != null)
-        {
             playerStats.ModifyEnergy(cardStats.energyGainAmount);
-            Debug.Log($"⚡ Gained {cardStats.energyGainAmount} Energy.");
-        }
 
-        // --- Damage ---
+        // --- DAMAGE ENEMY ---
         if (cardStats.canDamage && target != null && target.CompareTag("Enemy"))
         {
-            int totalDamage = cardStats.damageValue;
-            if (playerStats != null)
-                totalDamage += playerStats.attackBonus;
+            int dmg = cardStats.damageValue + (playerStats != null ? playerStats.attackBonus : 0);
 
             EnemyHealth enemy = target.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(totalDamage);
-                Debug.Log($"💥 {cardStats.cardName} dealt {totalDamage} damage.");
+                enemy.TakeDamage(dmg);
 
                 if (attackEffectPrefab != null)
                     Instantiate(attackEffectPrefab, transform.position, Quaternion.identity);
 
+                // 🔊 PLAYER ATTACK SOUND ONLY
                 if (SoundManager.Instance != null)
-                    SoundManager.Instance.PlaySound(SoundManager.Instance.playerAttackSound);
+                    SoundManager.Instance.PlayPlayerAttack();
             }
         }
 
-        // --- Heal ---
+        // --- HEAL ---
         if (cardStats.canHeal)
-        {
-            PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.Heal(cardStats.healValue);
-                Debug.Log($"💚 Player healed {cardStats.healValue} HP.");
-            }
-        }
+            FindObjectOfType<PlayerHealth>()?.Heal(cardStats.healValue);
 
-        // --- Draw Cards ---
+        // --- DRAW ---
         if (cardStats.canDrawCard && gm != null)
-        {
-            Debug.Log($"🃏 Drawing {cardStats.drawCount} card(s).");
             for (int i = 0; i < cardStats.drawCount; i++)
                 gm.DrawCard();
-        }
 
-        // --- Buffs ---
+        // --- BUFFS ---
         if (playerStats != null)
         {
             if (cardStats.canBuffAttack)
@@ -77,10 +62,10 @@ public class CardBehaviour : MonoBehaviour
                 playerStats.ApplyDefenseBuff(cardStats.defenseBuffValue, cardStats.defenseBuffDuration);
         }
 
-        // --- Discard ---
+        // --- DISCARD ---
         if (gm != null)
             gm.DiscardCard(gameObject);
         else
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
     }
 }
