@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TextStep : MonoBehaviour
+[System.Serializable]
+public class TextStep
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [TextArea(3, 5)]
+    public string message;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public RectTransform target;   // Empty UI object
 }

@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HandStep : MonoBehaviour
+[System.Serializable]
+public class HandStep
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public RectTransform target;
+    public Vector3 offset;    // UI offset (pixels)
+    public Vector3 rotation;  // Local rotation
 }
