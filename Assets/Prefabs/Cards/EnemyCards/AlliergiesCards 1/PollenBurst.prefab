@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 600115794034397066}
   - component: {fileID: 8454549918329834467}
   m_Layer: 0
-  m_Name: RunnyNose
+  m_Name: PollenBurst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a42fdd27c42af469ea3363f8d137a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardStats: {fileID: 11400000, guid: b31b54e6601c9664fa327288a1f39ae8, type: 2}
+  cardStats: {fileID: 11400000, guid: e76412506826ae54d8e7e79bccabf65b, type: 2}
   playDelay: 0.5
   stayDuration: 1
   fadeDuration: 0.5

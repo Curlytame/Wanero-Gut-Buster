@@ -17,10 +17,10 @@ MonoBehaviour:
   energyCost: 2
   canDamage: 1
   damageValue: 15
-  canHeal: 0
+  canHeal: 1
   healValue: 10
-  canBuff: 0
-  buffValue: 0
+  canBuff: 1
+  buffValue: 2
   buffDuration: 2
   canDrawCard: 0
   drawCount: 0

@@ -26,6 +26,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl/ColdScene.unity
     guid: b0f75563547fe67459e2045ebaf78a87
+  - enabled: 1
+    path: Assets/Scenes/Lvl/SoarThortheScene 1.unity
+    guid: ddb5fe2a6914f1a449a403d3332c896a
+  - enabled: 1
+    path: Assets/Scenes/Lvl/AllergiesScene.unity
+    guid: 6709acd8a0d059c4080ca3fef2805e4c
+  - enabled: 1
+    path: Assets/Scenes/Toorials/TutorialCombat.unity
+    guid: 9ff8c06ab8afa2c4f817bd8322c9ff9f
+  - enabled: 1
+    path: Assets/Scenes/Toorials/TutorialUi.unity
+    guid: 01bbb098da48ae047a70f33657a7b169
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4411f89bf24027a4daf45fe1bdc0d30b, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ddcf78ebda67ed1429bdb5d1341cedc2, type: 2}

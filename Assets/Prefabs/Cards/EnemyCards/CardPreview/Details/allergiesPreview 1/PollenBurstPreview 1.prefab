@@ -65,10 +65,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Deal: 10 Dmg
+  m_text: 'Deal: 15 Dmg
 
 
-'
+    Reduce Player def
+
+    By: 5 for 2 turn'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5f4da257a529514b939e72043f79e85, type: 2}
   m_sharedMaterial: {fileID: 152717954916421391, guid: e5f4da257a529514b939e72043f79e85, type: 2}

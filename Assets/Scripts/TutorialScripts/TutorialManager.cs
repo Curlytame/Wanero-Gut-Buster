@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class TutorialManager : MonoBehaviour
         if (nextButton != null)
             nextButton.onClick.AddListener(NextStep);
 
-        // 🔒 Safety: prevent null crash
         maxSteps = Mathf.Min(
             highlightController.steps.Count,
             textController.steps.Count,
@@ -53,11 +53,7 @@ public class TutorialManager : MonoBehaviour
 
     void EndTutorial()
     {
-        highlightController.gameObject.SetActive(false);
-        textController.gameObject.SetActive(false);
-        handController.gameObject.SetActive(false);
-
-        if (nextButton != null)
-            nextButton.gameObject.SetActive(false);
+        // ▶ Load Level Pick scene instead of hiding UI
+        SceneManager.LoadScene("LevelPick");
     }
 }

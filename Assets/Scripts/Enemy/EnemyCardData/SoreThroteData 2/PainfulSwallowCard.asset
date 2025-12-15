@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: PainfulSwallow
   description: 
-  energyCost: 1
+  energyCost: 2
   canDamage: 1
-  damageValue: 8
+  damageValue: 22
   canHeal: 0
   healValue: 0
   canBuff: 0

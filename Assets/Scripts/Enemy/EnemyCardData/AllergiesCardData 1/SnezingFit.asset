@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf316d10614dd34abe1a398d3065ca3, type: 3}
   m_Name: SnezingFit
   m_EditorClassIdentifier: 
-  cardName: PainfulSwallow
+  cardName: SneezingFIt
   description: 
   energyCost: 1
   canDamage: 1
   damageValue: 8
   canHeal: 0
   healValue: 0
-  canBuff: 0
-  buffValue: 0
-  buffDuration: 0
+  canBuff: 1
+  buffValue: 2
+  buffDuration: 3
   canDrawCard: 0
   drawCount: 0
   cardType: 0

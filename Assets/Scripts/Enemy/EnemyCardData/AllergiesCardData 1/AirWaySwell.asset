@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf316d10614dd34abe1a398d3065ca3, type: 3}
   m_Name: AirWaySwell
   m_EditorClassIdentifier: 
-  cardName: SeverInfection
+  cardName: AirwaySwell
   description: 
-  energyCost: 2
-  canDamage: 1
+  energyCost: 1
+  canDamage: 0
   damageValue: 15
-  canHeal: 0
-  healValue: 10
-  canBuff: 0
-  buffValue: 0
+  canHeal: 1
+  healValue: 5
+  canBuff: 1
+  buffValue: 5
   buffDuration: 2
   canDrawCard: 0
   drawCount: 0

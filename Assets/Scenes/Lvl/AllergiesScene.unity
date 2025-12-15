@@ -1282,7 +1282,7 @@ GameObject:
   - component: {fileID: 390807021}
   - component: {fileID: 390807022}
   m_Layer: 0
-  m_Name: Cold
+  m_Name: Allergies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1297,8 +1297,8 @@ Transform:
   m_GameObject: {fileID: 390807020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.054, z: 0}
-  m_LocalScale: {x: 0.16849092, y: 0.14009841, z: 0.23307346}
+  m_LocalPosition: {x: 0, y: -0.11, z: 0}
+  m_LocalScale: {x: 0.11725957, y: 0.097500086, z: 0.16220514}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1889017634}
@@ -1344,7 +1344,7 @@ SpriteRenderer:
   m_SortingLayerID: 732789539
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c5821ef0657034848bf5c10f8f4ae6b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06407ed58a1338346b7234e41e56f436, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5004,7 +5004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -74.8, y: 24.1}
+  m_AnchoredPosition: {x: -102.00001, y: 24.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341080759
@@ -5027,7 +5027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cold
+  m_text: 'Allergies
 
 
 '
@@ -5039,8 +5039,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294912011
-  m_fontColor: {r: 0.043396115, g: 0.15664442, b: 1, a: 1}
+    rgba: 4281597884
+  m_fontColor: {r: 0.7380173, g: 1, b: 0.20188677, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5093,7 +5093,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -56.928383, y: 0, z: 156.74425, w: 0}
+  m_margin: {x: -56.928383, y: 0, z: 48.99245, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6994,7 +6994,7 @@ SpriteRenderer:
   m_SortingLayerID: -1619936451
   m_SortingLayer: 3
   m_SortingOrder: 200
-  m_Sprite: {fileID: 21300000, guid: 3f336f6284e99ce4080fa72b1c4e9866, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef3a9ecb6f35c934ab7cdcf3822c9c6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7350,12 +7350,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890b540023edfdd44b94600ecf49f765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  _currentHealth: 100
+  maxHealth: 120
+  _currentHealth: 120
   attackBonus: 0
   defense: 0
-  maxEnergy: 3
-  currentEnergy: 3
+  maxEnergy: 4
+  currentEnergy: 4
   activeBuffs: []
 --- !u!114 &1889017640
 MonoBehaviour:
@@ -7407,15 +7407,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCardPrefabs:
-  - {fileID: 846107169284266744, guid: f90530a72c325b44595f0752177986ff, type: 3}
-  - {fileID: 846107169284266744, guid: 768e1fbb555f19c41aa2758445e455ed, type: 3}
-  - {fileID: 846107169284266744, guid: aca53a4ca0d2db94f8801b1743f2a8e3, type: 3}
-  - {fileID: 846107169284266744, guid: de8ef02442f639f44bc4f6a09641ef24, type: 3}
+  - {fileID: 846107169284266744, guid: 149ed1e006dd2144981ce8f43c2e13a4, type: 3}
+  - {fileID: 846107169284266744, guid: ca93943e9cb9492498f0b27b66b9b192, type: 3}
+  - {fileID: 846107169284266744, guid: 5bf658d6eeeb5ee49995df9caad1100f, type: 3}
   enemyCardPreviewPrefabs:
-  - {fileID: 4235052388363230578, guid: d0402c19f11c8c746a6edaa40d0b9ef1, type: 3}
-  - {fileID: 4235052388363230578, guid: 75b7b872942b5ac4f864889e3135b34f, type: 3}
-  - {fileID: 4235052388363230578, guid: fea627295f7c32844b1b0b225ae8a4f0, type: 3}
-  - {fileID: 4235052388363230578, guid: e57c52b912ad0574fb61c517c629952d, type: 3}
+  - {fileID: 4235052388363230578, guid: 7fa04b3240496634396170554180052a, type: 3}
+  - {fileID: 4235052388363230578, guid: 2080d67bbee127243aa43b992ffa9bee, type: 3}
+  - {fileID: 4235052388363230578, guid: 9f4de71c9c4836340ad15beaa626a2b2, type: 3}
   startingHandSize: 5
   enemyHandIndexes: 
 --- !u!1 &1895948698

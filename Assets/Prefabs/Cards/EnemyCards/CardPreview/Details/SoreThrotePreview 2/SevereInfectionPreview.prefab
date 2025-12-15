@@ -65,14 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Reduce Player def
-
-    By: 5 for 2 turn
-
-
-    Heal: 5 Hp
-
-'
+  m_text: "Deal: 15 Dmg\n\nHeal: 10Hp \n\nBuff Enemy Attack \nby 2 for 2 turn"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5f4da257a529514b939e72043f79e85, type: 2}
   m_sharedMaterial: {fileID: 152717954916421391, guid: e5f4da257a529514b939e72043f79e85, type: 2}
@@ -175,7 +168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -657, y: 327}
+  m_AnchoredPosition: {x: -642, y: 315}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5104723083399520043
@@ -206,8 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1
-
+  m_text: '2
 
 '
   m_isRightToLeft: 0
@@ -372,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6647409647819070369}
   m_Layer: 0
-  m_Name: AirwaySwellPreview 1
+  m_Name: SevereInfectionPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,7 +564,7 @@ SpriteRenderer:
   m_SortingLayerID: -1619936451
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 217c11f92417719478ddba1d1446f280, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1753ea8c6f84cf4987039a60799cc6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
