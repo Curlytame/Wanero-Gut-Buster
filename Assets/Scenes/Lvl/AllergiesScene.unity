@@ -7385,7 +7385,7 @@ MonoBehaviour:
   cardPlayArea: {fileID: 1506259498}
   handManager: {fileID: 1889017642}
   behaviorTree: {fileID: 1889017640}
-  cardPlayEffectPrefab: {fileID: 246834923419787954, guid: 064fe90e2ee268c4c98639c40a913733, type: 3}
+  cardPlayEffectPrefab: {fileID: 833793456567706249, guid: 5ce35223ec030ee4a858cdc2e104434d, type: 3}
   effectSpawnPoint: {fileID: 418353412}
   effectRiseSpeed: 0.5
   effectFadeDuration: 1.5

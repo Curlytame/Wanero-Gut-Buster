@@ -704,8 +704,8 @@ RectTransform:
   - {fileID: 280352185}
   - {fileID: 1521763254}
   - {fileID: 325392501}
-  - {fileID: 745338726}
   - {fileID: 1031548072}
+  - {fileID: 745338726}
   - {fileID: 1090646543}
   - {fileID: 848491499}
   m_Father: {fileID: 0}
@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 745338728}
   - component: {fileID: 745338727}
   m_Layer: 5
-  m_Name: TutorialUiButtons
+  m_Name: TutorialCombattButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f8cf8fc76e44aa429d291c2ff0bae62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3170c2ba79c38fe4c8fbf8a247368894, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 1031548074}
   - component: {fileID: 1031548073}
   m_Layer: 5
-  m_Name: TutorialCombatButton
+  m_Name: TutorialUiButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
