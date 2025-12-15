@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1985,7 +1985,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2628,8 +2628,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -12, y: -8}
+  m_SizeDelta: {x: 470.51, y: 279.4532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240699424
 MonoBehaviour:
@@ -2651,7 +2651,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 21
+  m_text: 'Fever: Warm fluids aid hydration and soothe. Use Herbal/Decaf teas.
+
+    Cold:
+    Warmth and steam clear congestion; antioxidants (Green Tea) are supportive.
+
+    Allergy:
+    Green tea contains EGCG and Quercetin, which have antihistamine and anti-inflammatory
+    effects.
+
+    Sore Throat: Warm tea soothes pain and provides hydration.
+
+    Acid
+    Reflux: Caffeine relaxes the LES. Caffeinated teas are a trigger. Herbal teas
+    (Ginger, Chamomile) are safe.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2678,8 +2691,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2714,7 +2727,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -66.14862, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3698,7 +3711,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4188,7 +4201,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4263,7 +4276,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4320,8 +4333,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -0.00000453}
+  m_SizeDelta: {x: 414.9833, y: 231.9088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387896539
 MonoBehaviour:
@@ -4343,7 +4356,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '13  13 13 13 '
+  m_text: 'Fever: High water content aids hydration. Provides light vitamins and
+    minerals.
+
+    Cold: Light, high-water content, and non-inflammatory.
+
+    Allergy:
+    Light, anti-inflammatory, and provides necessary micronutrients.
+
+    Sore Throat:
+    Can be scratchy if very crisp. Choose softer varieties or avoid raw during severe
+    pain.
+
+    Acid Reflux: Very low-acid, low-fat vegetable. A very safe choice.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4370,8 +4395,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4406,7 +4431,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -70.282974, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4736,7 +4761,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5205,7 +5230,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5262,8 +5287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000015259, y: 0}
+  m_SizeDelta: {x: 500, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &479974007
 MonoBehaviour:
@@ -5285,7 +5310,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 26
+  m_text: 'Fever: Can be high in sugar and fat depending on toppings and preparation.
+    Focus on bland foods.
+
+    Cold: Provides soft, moist energy. Use a low-sugar/low-fat
+    preparation.
+
+    Allergy: Generally fine, but watch out for milk/egg/wheat allergy.
+
+    Sore
+    Throat: The soft, moist texture is gentle and easy to swallow.
+
+    Acid Reflux:
+    Often high in fat (butter for frying) and high in sugar (syrup), making it a
+    major trigger.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5312,8 +5350,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5923,7 +5961,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6416,7 +6454,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6473,8 +6511,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.000015259, y: 0}
+  m_SizeDelta: {x: 510.0718, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582995439
 MonoBehaviour:
@@ -6496,7 +6534,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 23
+  m_text: 'Fever: Absolutely critical for regulating body temperature and replacing
+    fluids lost through sweat.
+
+    Cold: Thins mucus, helps prevent dehydration,
+    and keeps nasal passages moist.
+
+    Allergy: Helps flush out allergens and thins
+    mucus from post-nasal drip.
+
+    Sore Throat: Keeps mucous membranes moist and
+    helps prevent drying/scratching sensations.
+
+    Acid Reflux: Washes acid down
+    the esophagus and can temporarily neutralize mild symptoms.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6523,8 +6574,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6607,8 +6658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 11, y: -29.214}
+  m_SizeDelta: {x: 607.2278, y: 339.4004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &592470482
 MonoBehaviour:
@@ -6630,7 +6681,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 111111
+  m_text: 'Fever: Provides high-quality protein and zinc, supporting immune response
+    and recovery. (Choose lean cuts).
+
+    Cold: Excellent source of protein for
+    immune strength. The warmth of a lean beef broth can help with hydration and
+    congestion.
+
+    Allergy: Can be inflammatory if high in fat. Lean cuts are
+    generally safer, but individuals with Alpha-gal syndrome must avoid it.
+
+    Sore
+    Throat: Can be tough to swallow and may scratch the throat if not extremely tender
+    or shredded.
+
+    Acid Reflux: High-fat beef is a major trigger (relaxes the
+    Lower Esophageal Sphincter - LES). Lean cuts are generally safer.
+
+    make
+    the format like this'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6657,8 +6726,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6891,7 +6960,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7041,7 +7110,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7472,7 +7541,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8228,7 +8297,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8756,8 +8825,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0.0000076293945}
+  m_SizeDelta: {x: 458.3933, y: 271.1846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755071991
 MonoBehaviour:
@@ -8779,9 +8848,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '99999
+  m_text: 'Fever; Promotes circulation and sweating, which can aid in temperature
+    regulation.
 
-'
+    Cold: Natural anti-inflammatory, helps warm the body, and is
+    excellent for clearing airways and congestion.
+
+    Allergy: Excellent anti-inflammatory
+    agent that can help soothe irritated airways and nasal passages.
+
+    Sore Throat:
+    The warmth and mild spice have a soothing, anti-inflammatory effect on the throat.
+
+    Acid
+    Reflux: Known to settle the stomach, reduce nausea, and act as a digestive anti-inflammatory.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8808,8 +8888,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8967,8 +9047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000015259, y: 0}
+  m_SizeDelta: {x: 500, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776497981
 MonoBehaviour:
@@ -8990,7 +9070,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 24
+  m_text: 'Fever: Refined sugar and fat can be inflammatory and hinder immune response.
+    Avoid.
+
+    Cold: Sugar promotes inflammation, which is counterproductive to
+    healing. Avoid.
+
+    Allergy: High sugar content promotes general inflammation,
+    potentially worsening allergic symptoms. Avoid.
+
+    Sore Throat: The soft texture
+    may be easy to swallow, but the sugar and fat offer no therapeutic benefit. Use
+    with caution.
+
+    Acid Reflux: High fat and high sugar content are potent triggers
+    for LES relaxation. Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9017,8 +9111,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9878,7 +9972,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10031,7 +10125,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10428,7 +10522,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 443.9232, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896618901
 MonoBehaviour:
@@ -10450,7 +10544,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 17
+  m_text: 'Fever: Can cause digestive discomfort in large amounts. Use sparingly.
+
+    Cold:
+    Piperine can cause a mild irritant effect that may encourage mucus drainage.
+    Use lightly.
+
+    Allergy: Can trigger a non-allergic sneeze/runny nose. Use
+    sparingly.
+
+    Sore Throat: Can sting and irritate the inflamed throat tissue.
+    Avoid.
+
+    Acid Reflux: Can be an irritant that triggers acid production or
+    discomfort. Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10477,8 +10584,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10919,7 +11026,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11126,7 +11233,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11276,7 +11383,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11672,8 +11779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 0}
+  m_SizeDelta: {x: 437.7218, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004747120
 MonoBehaviour:
@@ -11695,7 +11802,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 19
+  m_text: 'Fever: Bland, low-fat, and easy-to-digest carbohydrate for energy.
+
+    Cold:
+    Neutral source of energy. Warm rice porridge (congee) is comforting.
+
+    Allergy:
+    Hypoallergenic, low-acid, and non-inflammatory. A very safe food.
+
+    Sore Throat:
+    Soft, moist, and easy to swallow, especially when made into congee.
+
+    Acid
+    Reflux: Bland, low-acid, and helps absorb stomach acid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11722,8 +11841,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12515,7 +12634,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 470.51, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1058797656
 MonoBehaviour:
@@ -12537,7 +12656,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '15 15 15 15 15 15 '
+  m_text: 'Fever: Contains Quercetin and other compounds with immune-supportive properties.
+
+    Cold:
+    Natural expectorant and decongestant properties, similar to garlic.
+
+    Allergy:
+    High in Quercetin, which acts as a natural antihistamine and anti-inflammatory
+    agent.
+
+    Sore Throat: Can be too pungent and irritating when raw. Use well-cooked
+    and softened in a soup base.
+
+    Acid Reflux: A common and potent trigger for
+    LES relaxation and heartburn. Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12564,8 +12696,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13083,7 +13215,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14107,8 +14239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000015259, y: 0}
+  m_SizeDelta: {x: 500, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148515994
 MonoBehaviour:
@@ -14130,7 +14262,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 28
+  m_text: 'Fever: Keep fillings bland and easy to digest (e.g., lean chicken/egg
+    salad) on soft bread.
+
+    Cold: Depends on the filling; a lean protein/vegetable
+    filling provides energy.
+
+    Allergy: Depends on filling/bread ingredients (potential
+    allergens).
+
+    Sore Throat: Crusty bread or tough fillings can be scratchy.
+    Use soft bread with a soft filling only.
+
+    Acid Reflux: Fillings like tomato,
+    onion, mustard, high-fat cold cuts are triggers. Choose safe, low-acid fillings.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14157,8 +14302,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14766,7 +14911,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14955,8 +15100,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -11.644}
+  m_SizeDelta: {x: 489.4004, y: 304.259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325997308
 MonoBehaviour:
@@ -14978,7 +15123,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8888888
+  m_text: 'Fever: Contains allicin, which has purported immune-boosting and antimicrobial
+    properties.
+
+    Cold: Strong antimicrobial and natural decongestant properties.
+    Best consumed cooked in a warm broth.
+
+    Allergy: Contains anti-inflammatory
+    properties that may help reduce overall body inflammation.
+
+    Sore Throat:
+    Can be too pungent and potentially irritating when raw. Best used cooked and
+    mashed into soup.
+
+    Acid Reflux: A common and potent trigger for heartburn
+    and LES relaxation. Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15005,8 +15164,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15353,8 +15512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 12, y: -24}
+  m_SizeDelta: {x: 617.5635, y: 304.259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345446411
 MonoBehaviour:
@@ -15376,7 +15535,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 55555555
+  m_text: 'Fever: Lean protein for recovery; chicken broth is essential for replacing
+    fluids and electrolytes.                                                                  
+    Cold: The core of chicken soup: steam helps with congestion; broth provides fluids;
+    protein aids recovery.                                                    Allergy:
+    Lean white meat protein is typically non-inflammatory and easily tolerated.                                                                                                            
+    Sore Throat: Soft, shredded chicken in a broth is very easy to swallow and provides
+    needed protein.                                                                              
+    Acid Reflux: Very low-fat, lean meat (especially breast) is one of the safest
+    protein choices.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15403,8 +15570,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15551,7 +15718,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15872,8 +16039,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 9, y: 0}
+  m_SizeDelta: {x: 500, y: 216.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1414573592
 MonoBehaviour:
@@ -15895,7 +16062,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 22
+  m_text: 'Fever: Rich in Vitamin C, but the acidity can be hard on a sensitive stomach
+    during illness. Use with caution.
+
+    Cold: High in Vitamin C and anti-inflammatory
+    antioxidants (lycopene).
+
+    Allergy: Contains anti-inflammatory antioxidants
+    (lycopene).
+
+    Sore Throat: The high acidity will sting and irritate inflamed
+    throat tissue. Avoid.
+
+    Acid Reflux: High acidity is a primary cause of heartburn
+    symptoms. Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15922,8 +16102,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16138,8 +16318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -7.5092}
+  m_SizeDelta: {x: 500, y: 295.9904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440357348
 MonoBehaviour:
@@ -16161,7 +16341,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '14 14 14 14 14 '
+  m_text: 'Fever; Provides fluids, protein, and calories when appetite is poor. Cold
+    milk can be soothing.
+
+    Cold: Some people report it thickens their phlegm
+    or increases mucus, despite weak scientific evidence. Use with caution.
+
+    Allergy:
+    Can potentially increase mucus/phlegm in some people, worsening post-nasal drip.
+    Use with caution.
+
+    Sore Throat: Cold milk, yogurt, or ice cream can temporarily
+    numb and soothe the pain.
+
+    Acid Reflux: Full-fat milk is a major trigger.
+    Non-fat/low-fat milk can temporarily buffer acid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16188,8 +16382,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16921,8 +17115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 22.259, y: -15}
+  m_SizeDelta: {x: 510.072, y: 285.6546}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1496645679
 MonoBehaviour:
@@ -16944,9 +17138,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '33333
+  m_text: 'Fever: Plain white toast is a bland, simple carbohydrate for easy energy
+    when the appetite is low.
 
-'
+    Cold: Provides simple calories and energy. Does
+    not directly affect congestion or cold symptoms.
+
+    Allergy: Generally safe,
+    but wheat is a common allergen. Whole grain is preferred for better nutrition.
+
+    Sore
+    Throat: Crusty bread is an irritant (scratches throat). Use only soft, moist,
+    or crustless bread.
+
+    Acid Reflux: High-fiber whole grain bread can help absorb
+    acid. Plain toast is easy on the stomach.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16973,8 +17179,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17009,7 +17215,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 45.477097, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -18313,7 +18519,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18371,7 +18577,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 470.51, y: 252.5803}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1567530076
 MonoBehaviour:
@@ -18393,7 +18599,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10 10 10 10
+  m_text: 'Fever: Provides quick, gentle energy (calories) and is soothing when mixed
+    in warm liquids.
+
+    Cold: Excellent natural cough suppressant, coats the throat,
+    and has mild antibacterial properties.
+
+    Allergy: Local, raw honey is sometimes
+    suggested to help with seasonal allergies due to trace pollen (limited evidence).
+
+    Sore
+    Throat: Acts as a demulcent, coating the throat lining to relieve pain and irritation.
+
+    Acid
+    Reflux: Can coat the esophagus and may help soothe irritation. Use in small amounts.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18420,8 +18639,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18729,7 +18948,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -19011,7 +19230,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -19464,8 +19683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -13}
+  m_SizeDelta: {x: 500, y: 287.7218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681184971
 MonoBehaviour:
@@ -19487,7 +19706,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 777777
+  m_text: 'Fever: Easy-to-digest protein source for energy and strength during recovery.
+
+    Cold:
+    Provides high-quality protein and nutrients that support overall health and recovery.
+
+    Allergy:
+    Egg is a very common allergen; may cause severe reaction in allergic individuals.
+    Otherwise, neutral.
+
+    Sore Throat: Soft-scrambled or poached eggs are gentle
+    on the throat and provide needed energy.
+
+    Acid Reflux: Egg yolks are high
+    in fat, which can trigger reflux. Egg whites are generally safer and helpful.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19514,8 +19746,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19674,8 +19906,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -14}
+  m_SizeDelta: {x: 534.8776, y: 281.5204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689810592
 MonoBehaviour:
@@ -19697,7 +19929,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 29
+  m_text: 'Fever: Provides hydration, electrolytes (salt), and easy-to-digest calories.
+
+    Cold:
+    Steam clears congestion, fluids hydrate, and the warmth is comforting.
+
+    Allergy:
+    Warm, clear broth is soothing for throat irritation caused by post-nasal drip.
+
+    Sore
+    Throat: Warm, soothing, and requires almost no effort to swallow.
+
+    Acid Reflux:
+    Clear, non-acidic, low-fat broth is one of the safest foods. Avoid creamy or
+    tomato bases.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19724,8 +19969,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19940,8 +20185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.0000038147, y: -76}
+  m_SizeDelta: {x: 602.18, y: 399.3477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706355836
 MonoBehaviour:
@@ -19963,7 +20208,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 44444
+  m_text: 'Fever: Rich in Vitamin A (Beta-Carotene) and antioxidants, which support
+    immune function.
+
+    Cold: Nutrients support the immune system. Steam from hot
+    carrot soup may ease congestion.
+
+    Allergy: Contains anti-inflammatory properties
+    that may help manage symptoms.
+
+    Sore Throat: Raw carrots are an irritant
+    (crunchy/scratchy). Must be cooked very soft for a sore throat.
+
+    Acid Reflux:
+    Low-acid vegetable, generally safe and easy to digest.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19990,8 +20248,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20339,7 +20597,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 528.6762, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731018306
 MonoBehaviour:
@@ -20361,9 +20619,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '30
+  m_text: 'Fever: Good source of calories, protein, and nutrients for recovery. Ingredients
+    should be cooked very soft.
 
-'
+    Cold: Provides warmth and sustained energy.
+    Can be enriched with ginger and garlic.
+
+    Allergy: Nutrient-dense and hydrating.
+    Ensure it is not too spicy or heavy.
+
+    Sore Throat: Soft, moist chunks of
+    food are easy to manage and swallow.
+
+    Acid Reflux: Tomato-based or high-fat
+    stews are triggers. Use a clear broth base, lean meat, and safe vegetables (potato,
+    carrot).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20390,8 +20660,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -22261,8 +22531,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000022888, y: 2.7077}
+  m_SizeDelta: {x: 454.2589, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1916401956
 MonoBehaviour:
@@ -22284,7 +22554,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 11 11 11 11
+  m_text: 'Fever; Used in traditional Filipino medicine for fever reduction (antipyretic).
+    (Consult a doctor).
+
+    Cold: Primarily used as an expectorant (helps cough
+    up phlegm) and bronchodilator for cough and cold symptoms. (Consult a doctor).
+
+    Allergy:
+    Not typically used for allergic rhinitis; focus is on cough/cold symptoms.
+
+    Sore
+    Throat: By reducing cough and phlegm, it may indirectly soothe the irritated
+    throat.
+
+    Acid Reflux: No direct known benefit or risk, as it''s not commonly
+    used for digestive issues.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22311,8 +22595,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -23955,8 +24239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 2.7077}
+  m_SizeDelta: {x: 435.6547, y: 227.7746}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030506143
 MonoBehaviour:
@@ -23978,7 +24262,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 18
+  m_text: 'Fever: Excellent source of simple carbohydrates for sustained energy.
+
+    Cold:
+    Easy to digest source of calories and Vitamin C (under the skin).
+
+    Allergy:
+    Low-acid, non-inflammatory food.
+
+    Sore Throat: Mashed potatoes are soft and
+    very easy to swallow, providing needed energy.
+
+    Acid Reflux: Naturally alkaline
+    (basic) and helps neutralize stomach acid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24005,8 +24301,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24392,7 +24688,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24752,7 +25048,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24809,8 +25105,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -31}
+  m_SizeDelta: {x: 508.0047, y: 300.1247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2082136294
 MonoBehaviour:
@@ -24832,7 +25128,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12 12 12 12 12 '
+  m_text: 'Fever: High in Vitamin C and can be part of a hydrating, electrolyte-balancing
+    drink (when diluted).                                              Cold: Vitamin
+    C supports immune cells; the acidity can feel cleansing when diluted.                                                                                                      
+    Allergy: Vitamin C and bioflavonoids may have natural antihistamine and anti-inflammatory
+    properties.                                                                           
+    Sore Throat: The high acidity will sting and severely irritate inflamed throat
+    tissue. Avoid.                                                                                                            
+    Acid Reflux: High acidity is a primary cause of heartburn symptoms. Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24859,8 +25162,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24944,7 +25247,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 454.259, y: 225.7074}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084721194
 MonoBehaviour:
@@ -24966,7 +25269,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20
+  m_text: 'Fever: Essential for replacing lost electrolytes (sodium) due to sweating.
+
+    Cold:
+    Crucial for replacing electrolytes, especially if experiencing a runny nose.
+
+    Allergy:
+    No direct effect on allergic symptoms.
+
+    Sore Throat: Saltwater gargle draws
+    fluid from inflamed tissue to relieve pain (do not swallow).
+
+    Acid Reflux:
+    No direct trigger, but high-sodium processed foods often contain fat/spices (triggers).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24993,8 +25308,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25095,7 +25410,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -25152,8 +25467,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 11, y: -18.696}
+  m_SizeDelta: {x: 572.6943, y: 318.3643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096052729
 MonoBehaviour:
@@ -25175,7 +25490,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 222222
+  m_text: "Fever: Provide sustained energy and protein; generally easy to digest
+    and nutritious.\nCold: Fiber and nutrients support gut health, which is linked
+    to overall immunity.\nAllergy: Generally a safe, high-fiber, and non-inflammatory
+    protein source.\nSore Throat: Soft, mashed beans or pur\xE9ed bean soup are very
+    easy to swallow.\nAcid Reflux: High fiber content helps absorb stomach acid.
+    Naturally low-fat food, making it safe."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25202,8 +25522,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25304,7 +25624,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 150, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -25361,8 +25681,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.000015259, y: 2.7077}
+  m_SizeDelta: {x: 512.1391, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110234791
 MonoBehaviour:
@@ -25384,7 +25704,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 27
+  m_text: 'Fever: Raw vegetables can be hard to digest when the stomach is weak;
+    cooked food is better.
+
+    Cold: Provides raw nutrients and is generally non-inflammatory.
+
+    Allergy:
+    High in anti-inflammatory nutrients. Use with simple, non-vinegar dressings.
+
+    Sore
+    Throat: Hard, raw vegetables (like carrots, celery) are scratchy irritants. Avoid
+    raw, crunchy salads.
+
+    Acid Reflux: Dressing is the key trigger (vinegar,
+    high-fat, creamy). Use plain vegetables with light oil only.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25411,8 +25744,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25627,8 +25960,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 6.4964, y: -66.6978}
+  m_SizeDelta: {x: 613.5362, y: 370.3712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111493807
 MonoBehaviour:
@@ -25650,7 +25983,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6666666
+  m_text: 'Fever: Can increase body heat sensation and potentially irritate a sensitive
+    stomach during a fever. Avoid.
+
+    Cold: Capsaicin is a natural decongestant,
+    temporarily thinning mucus and helping to clear the sinuses.
+
+    Allergy: Can
+    cause a non-allergic runny nose and sneezing (gustatory rhinitis), adding to
+    allergic discomfort. Avoid.
+
+    Sore Throat: The intense heat from capsaicin
+    will severely sting and irritate the inflamed throat tissue. Avoid.
+
+    Acid
+    Reflux: Relaxes the LES and is highly irritating to the esophagus, causing severe
+    heartburn. Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25677,8 +26025,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25918,7 +26266,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 441.8561, y: 243.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124612374
 MonoBehaviour:
@@ -25940,7 +26288,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 16
+  m_text: "Fever: Good source of vitamins, minerals, and plant protein for recovery.\nCold:
+    Nutrients support the immune system.\nAllergy: Generally a non-inflammatory,
+    high-fiber food.\nSore Throat: Soft and round, making them easy to swallow, especially
+    in a pur\xE9ed or chunky soup.\nAcid Reflux: Low-acid, high-fiber vegetable."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25967,8 +26318,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26051,8 +26402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_SizeDelta: {x: 470.51, y: 256.7146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132534601
 MonoBehaviour:
@@ -26074,7 +26425,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25
+  m_text: 'Fever: Usually contains spice, fat, and potential irritants that are too
+    heavy for a fever. Avoid.
+
+    Cold: Depends on the curry. Spicy curry may thin
+    mucus, but high-fat/creamy curry may cause stomach issues. Use with caution.
+
+    Allergy:
+    Spice mix can contain irritants that worsen the nose/throat symptoms. Avoid.
+
+    Sore
+    Throat: Spices (chilli, pepper) and acidity in the curry will sting and irritate.
+    Avoid.
+
+    Acid Reflux: Spices, onions, and high-fat content are potent triggers.
+    Avoid.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26101,8 +26466,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
