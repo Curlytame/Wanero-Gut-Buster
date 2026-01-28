@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Deck 1 (Default)")]
+    public List<GameObject> deck1List;
+
+    [Header("Deck 2")]
+    public List<GameObject> deck2List;
+
+    [Header("Deck 3")]
+    public List<GameObject> deck3List;
+
     [Header("Card Settings")]
-    public List<GameObject> deckList;
     public int startingHandSize = 5;
 
     [Header("References")]
@@ -14,22 +22,53 @@ public class GameManager : MonoBehaviour
     public CardDrawEffectManager drawEffectManager;
 
     [Header("Draw Settings")]
-    public float drawDelay = 0.3f;  // Delay before card is added, matches animation
+    public float drawDelay = 0.3f;
 
+    private List<GameObject> activeDeckSource;
     private List<GameObject> deck = new List<GameObject>();
     private List<GameObject> discardPile = new List<GameObject>();
 
     private void Start()
     {
-        CreateDeck();
+        // Default to Deck 1
+        SetActiveDeck(1);
+
         ShuffleDeck();
         StartCoroutine(DrawStartingHand());
     }
 
-    private void CreateDeck()
+    /* =======================
+       DECK SETUP & SWITCHING
+       ======================= */
+
+    public void SetActiveDeck(int deckIndex)
+    {
+        switch (deckIndex)
+        {
+            case 1:
+                activeDeckSource = deck1List;
+                break;
+            case 2:
+                activeDeckSource = deck2List;
+                break;
+            case 3:
+                activeDeckSource = deck3List;
+                break;
+            default:
+                Debug.LogWarning("Invalid deck index, defaulting to Deck 1");
+                activeDeckSource = deck1List;
+                break;
+        }
+
+        BuildDeckFromSource();
+    }
+
+    private void BuildDeckFromSource()
     {
         deck.Clear();
-        foreach (GameObject cardPrefab in deckList)
+        discardPile.Clear();
+
+        foreach (GameObject cardPrefab in activeDeckSource)
         {
             if (cardPrefab != null)
                 deck.Add(cardPrefab);
@@ -44,6 +83,10 @@ public class GameManager : MonoBehaviour
             (deck[i], deck[rand]) = (deck[rand], deck[i]);
         }
     }
+
+    /* =======================
+       DRAWING
+       ======================= */
 
     private IEnumerator DrawStartingHand()
     {
@@ -62,10 +105,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DrawCardWithEffect()
     {
-        // Play animation first
         drawEffectManager?.PlayDrawAnimation();
-
-        // Wait for the animation/delay
         yield return new WaitForSeconds(drawDelay);
 
         if (deck.Count == 0)
@@ -92,9 +132,13 @@ public class GameManager : MonoBehaviour
             yield break;
 
         GameObject cardObj = Instantiate(cardPrefab);
-        Card c = cardObj.GetComponent<Card>();
-        handManager.AddCardToHand(c);
+        Card card = cardObj.GetComponent<Card>();
+        handManager.AddCardToHand(card);
     }
+
+    /* =======================
+       DISCARD SYSTEM
+       ======================= */
 
     public void DiscardCard(GameObject card)
     {
@@ -116,7 +160,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject GetCardPrefabReference(GameObject cardInstance)
     {
-        string nameToFind = cardInstance.name.Replace("(Clone)", "").Trim();
-        return deckList.Find(c => c.name == nameToFind);
+        string cleanName = cardInstance.name.Replace("(Clone)", "").Trim();
+        return activeDeckSource.Find(c => c.name == cleanName);
     }
 }
