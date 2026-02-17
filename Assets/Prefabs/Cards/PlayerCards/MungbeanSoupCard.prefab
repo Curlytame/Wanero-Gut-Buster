@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2080376926205569968}
   - component: {fileID: 2161664741898307549}
   m_Layer: 0
-  m_Name: StewCard
+  m_Name: MungbeanSoupCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c0019f91cfdf1f4a9d9adb12b84730a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89c69e564172cb3458c2fcd0a0013643, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 2
-  descriptionPrefab: {fileID: 2831604629508282035, guid: d5330ea8695304a4ab4f029d00b40f0d, type: 3}
+  descriptionPrefab: {fileID: 2831604629508282035, guid: 2e81ecfb9133a5646b29423d926aad5c, type: 3}
   descriptionSpawnPoint: {fileID: 0}
   slideOffset: {x: 10, y: 0, z: 0}
   slideSpeed: 10
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095ba8dced8c92448867072dfb31451f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardStats: {fileID: 11400000, guid: 1071763b1cf699d479fcb7721f68e000, type: 2}
+  cardStats: {fileID: 11400000, guid: b53cb569823a09545a1bd1a8012aaf3e, type: 2}
   attackEffectPrefab: {fileID: 6414049995483001186, guid: a863ee7848bfd0240ab6336916ec0824, type: 3}

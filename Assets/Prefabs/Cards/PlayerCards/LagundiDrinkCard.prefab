@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2080376926205569968}
   - component: {fileID: 2161664741898307549}
   m_Layer: 0
-  m_Name: CurryRiceCard
+  m_Name: LagundiDrinkCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6285a44161991a4469ef019cdef3319d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 195c0069fe0d8c34f96de97546346527, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 2
-  descriptionPrefab: {fileID: 2831604629508282035, guid: e151f52b55324824c9574944ab0bf562, type: 3}
+  descriptionPrefab: {fileID: 2831604629508282035, guid: 8c9509ce546b0314da33d7f6b3c807b6, type: 3}
   descriptionSpawnPoint: {fileID: 0}
   slideOffset: {x: 10, y: 0, z: 0}
   slideSpeed: 10
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095ba8dced8c92448867072dfb31451f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardStats: {fileID: 11400000, guid: a8ec11a8e7398bd4fb7af74455a61e19, type: 2}
+  cardStats: {fileID: 11400000, guid: b3c39f04f08abeb4ab9868bb37a6c1c4, type: 2}
   attackEffectPrefab: {fileID: 6414049995483001186, guid: a863ee7848bfd0240ab6336916ec0824, type: 3}

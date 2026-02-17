@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8821006379586748781
+--- !u!1 &332944971010077324
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8841807983015862911}
-  - component: {fileID: 1265442360578082858}
-  - component: {fileID: 602510275669793993}
-  - component: {fileID: 2718674119431248752}
-  - component: {fileID: 8093224386598704676}
+  - component: {fileID: 6920613646129941575}
+  - component: {fileID: 5186522666801166851}
+  - component: {fileID: 7036659776950238542}
+  - component: {fileID: 2080376926205569968}
+  - component: {fileID: 2161664741898307549}
   m_Layer: 0
-  m_Name: LettuceCard
+  m_Name: TummericTeaCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8841807983015862911
+--- !u!4 &6920613646129941575
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821006379586748781}
+  m_GameObject: {fileID: 332944971010077324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.77, y: -2.93, z: -0.09268601}
+  m_LocalPosition: {x: 3.2, y: -3.09, z: -0.09268601}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1265442360578082858
+--- !u!212 &5186522666801166851
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821006379586748781}
+  m_GameObject: {fileID: 332944971010077324}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e0a1bcda74017704e996779a19fb9834, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e0beace0523d564092f7cb25c24fc05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &602510275669793993
+--- !u!61 &7036659776950238542
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821006379586748781}
+  m_GameObject: {fileID: 332944971010077324}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -132,34 +132,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.7576566, y: 10.8}
   m_EdgeRadius: 0
---- !u!114 &2718674119431248752
+--- !u!114 &2080376926205569968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821006379586748781}
+  m_GameObject: {fileID: 332944971010077324}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9099172454c4a78448163f8e5dfa6acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 2
-  descriptionPrefab: {fileID: 2831604629508282035, guid: d6a2118446c3bde45afe3279db479bef, type: 3}
+  descriptionPrefab: {fileID: 2831604629508282035, guid: e151f52b55324824c9574944ab0bf562, type: 3}
   descriptionSpawnPoint: {fileID: 0}
   slideOffset: {x: 10, y: 0, z: 0}
   slideSpeed: 10
---- !u!114 &8093224386598704676
+--- !u!114 &2161664741898307549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821006379586748781}
+  m_GameObject: {fileID: 332944971010077324}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 095ba8dced8c92448867072dfb31451f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardStats: {fileID: 11400000, guid: cc49ef1dac204834f81e6e0dc093361b, type: 2}
+  cardStats: {fileID: 11400000, guid: a8ec11a8e7398bd4fb7af74455a61e19, type: 2}
   attackEffectPrefab: {fileID: 6414049995483001186, guid: a863ee7848bfd0240ab6336916ec0824, type: 3}
