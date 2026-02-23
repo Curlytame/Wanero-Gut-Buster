@@ -65,18 +65,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Deal: 5 Dmg
+  m_text: 'Deal: 2 Dmg
 
 
-    Buff Def: 5
-
-    Duration 1 Turns
+    Heal: 5 HP
 
 
-    Draw: 2 Cards
-
-
-'
+    Draw: 2 Cards'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5f4da257a529514b939e72043f79e85, type: 2}
   m_sharedMaterial: {fileID: 152717954916421391, guid: e5f4da257a529514b939e72043f79e85, type: 2}
@@ -239,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6647409647819070369}
   m_Layer: 0
-  m_Name: EggPreview
+  m_Name: MintPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,7 +386,7 @@ Transform:
   m_GameObject: {fileID: 6203826991941198500}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.828473, y: -1.1363447, z: 0.072029576}
+  m_LocalPosition: {x: -2.94, y: -1.1363447, z: 0.072029576}
   m_LocalScale: {x: 0.32825, y: 0.32825, z: 0.32825}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -438,7 +433,7 @@ SpriteRenderer:
   m_SortingLayerID: -1619936451
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 986500299b5dbba4db3b89615f5fe5bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b0e97e3d1a523146aba518e0dc1d9d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

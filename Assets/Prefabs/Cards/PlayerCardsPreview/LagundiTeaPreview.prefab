@@ -65,14 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Deal: 8 Dmg
-
-
-    Draw: 1 Card
-
-
-
-'
+  m_text: "Deal: 5 Dmg\n\nBuff Atk: 5 \nDuration 2 Turns\n\nBuff Def: 5\nDuration
+    2 Turns"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5f4da257a529514b939e72043f79e85, type: 2}
   m_sharedMaterial: {fileID: 152717954916421391, guid: e5f4da257a529514b939e72043f79e85, type: 2}
@@ -99,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
-  m_fontSizeBase: 90
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -135,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -118.50958, y: -129.88571, z: -617.4227, w: -800.40027}
+  m_margin: {x: -118.50958, y: -129.88571, z: -617.4227, w: -797.21014}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -235,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6647409647819070369}
   m_Layer: 0
-  m_Name: RicePreview
+  m_Name: LagundiTeaPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +381,7 @@ Transform:
   m_GameObject: {fileID: 6203826991941198500}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.828473, y: -1.1363447, z: 0.072029576}
+  m_LocalPosition: {x: -2.93, y: -1.1363447, z: 0.072029576}
   m_LocalScale: {x: 0.32825, y: 0.32825, z: 0.32825}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,7 +428,7 @@ SpriteRenderer:
   m_SortingLayerID: -1619936451
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fbb98f4ee7a19f948965af1d64c3f9a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 195c0069fe0d8c34f96de97546346527, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

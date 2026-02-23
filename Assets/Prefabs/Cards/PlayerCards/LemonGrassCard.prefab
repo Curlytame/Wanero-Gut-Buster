@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2080376926205569968}
   - component: {fileID: 2161664741898307549}
   m_Layer: 0
-  m_Name: OnionCard
+  m_Name: LemonGrassCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 50ca6279b79f5fd428351c1273186e74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5e58b363081f964c86795d6f4b60ad4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 2
-  descriptionPrefab: {fileID: 2831604629508282035, guid: fc402ce617ef5d7429ded01db082e57d, type: 3}
+  descriptionPrefab: {fileID: 2831604629508282035, guid: bf746c062186a0847a7ee5807beaf31e, type: 3}
   descriptionSpawnPoint: {fileID: 0}
   slideOffset: {x: 10, y: 0, z: 0}
   slideSpeed: 10
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095ba8dced8c92448867072dfb31451f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardStats: {fileID: 11400000, guid: 4e6c01bd1d7f24a4f917ebc6d07752f2, type: 2}
+  cardStats: {fileID: 11400000, guid: acfeb6d25dff8dc47b052ef6b14d0be0, type: 2}
   attackEffectPrefab: {fileID: 6414049995483001186, guid: a863ee7848bfd0240ab6336916ec0824, type: 3}
