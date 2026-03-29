@@ -65,10 +65,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Deal: 3 Dmg
+  m_text: 'heal: 3 HP
 
 
-    Restore: 1 Energy
+    Restore: 2 Energy
+
+
+    Buff Atk: 1 for 1
+
+    Turns
+
 
 
 
@@ -434,7 +440,7 @@ SpriteRenderer:
   m_SortingLayerID: -1619936451
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 387ac9e32b6a72f479ec1e67656d165e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b67255ca1e7fd64689a2a75e474434b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

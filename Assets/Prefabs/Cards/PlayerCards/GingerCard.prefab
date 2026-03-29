@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2080376926205569968}
   - component: {fileID: 2161664741898307549}
   m_Layer: 0
-  m_Name: LemonCard
+  m_Name: GingerCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 387ac9e32b6a72f479ec1e67656d165e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b67255ca1e7fd64689a2a75e474434b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
