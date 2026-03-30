@@ -1226,59 +1226,25 @@ MonoBehaviour:
   fusionArea3: {fileID: 340241289}
   fusionRecipes:
   - requiredSlots:
-    - specificCard: {fileID: 0}
-      requiredTag: vegetables
-    - specificCard: {fileID: 0}
-      requiredTag: vegetables
-    - specificCard: {fileID: 0}
-      requiredTag: vegetables
-    resultCardPrefab: {fileID: 4818325329617841650, guid: 636c0ce05f29f4847887a9923275a0c3, type: 3}
-  - requiredSlots:
-    - specificCard: {fileID: 0}
-      requiredTag: vegetables
-    - specificCard: {fileID: 11400000, guid: acfeb6d25dff8dc47b052ef6b14d0be0, type: 2}
+    - specificCard: {fileID: 11400000, guid: cc49ef1dac204834f81e6e0dc093361b, type: 2}
       requiredTag: 
-    - specificCard: {fileID: 11400000, guid: 614188bbd461e2245a2f358d02171974, type: 2}
-      requiredTag: 
-    resultCardPrefab: {fileID: 4818325329617841650, guid: cd6e12ab5b6892c40943ea6c74c5955e, type: 3}
-  - requiredSlots:
-    - specificCard: {fileID: 11400000, guid: d9c556db4715cd24c9897a325986d00f, type: 2}
-      requiredTag: 
-    - specificCard: {fileID: 11400000, guid: 7753af22d37adb74e80258164bbeab1f, type: 2}
-      requiredTag: 
-    - specificCard: {fileID: 11400000, guid: b53cb569823a09545a1bd1a8012aaf3e, type: 2}
-      requiredTag: 
-    resultCardPrefab: {fileID: 332944971010077324, guid: 6723502d268d10a4b88cac2cd7280a6d, type: 3}
-  - requiredSlots:
-    - specificCard: {fileID: 11400000, guid: acfeb6d25dff8dc47b052ef6b14d0be0, type: 2}
-      requiredTag: 
-    - specificCard: {fileID: 11400000, guid: 614188bbd461e2245a2f358d02171974, type: 2}
-      requiredTag: 
-    - specificCard: {fileID: 11400000, guid: c6e8f54962ed0d94f8176b23b230b85a, type: 2}
+    - specificCard: {fileID: 11400000, guid: 59d1466efad6fc743ae464752a971ce2, type: 2}
       requiredTag: 
     resultCardPrefab: {fileID: 332944971010077324, guid: ecf83c41d4d09f94f851af5bc9f984f4, type: 3}
   - requiredSlots:
-    - specificCard: {fileID: 11400000, guid: acfeb6d25dff8dc47b052ef6b14d0be0, type: 2}
+    - specificCard: {fileID: 11400000, guid: 3cc230f450554d949a6aa7bcea17844d, type: 2}
       requiredTag: 
-    - specificCard: {fileID: 0}
-      requiredTag: vegetables
-    - specificCard: {fileID: 11400000, guid: 7335e3dfd4be73c4eb1129484d620ae3, type: 2}
+    - specificCard: {fileID: 11400000, guid: 59d1466efad6fc743ae464752a971ce2, type: 2}
       requiredTag: 
-    resultCardPrefab: {fileID: 332944971010077324, guid: 60f304e9e8fa2d249b0b39500cac0d95, type: 3}
+    resultCardPrefab: {fileID: 4818325329617841650, guid: cd6e12ab5b6892c40943ea6c74c5955e, type: 3}
   - requiredSlots:
-    - specificCard: {fileID: 11400000, guid: acfeb6d25dff8dc47b052ef6b14d0be0, type: 2}
+    - specificCard: {fileID: 11400000, guid: 1d2e55f98a58b9a47b6c3ea3b6005627, type: 2}
       requiredTag: 
-    - specificCard: {fileID: 0}
-      requiredTag: vegetables
     - specificCard: {fileID: 11400000, guid: d9c556db4715cd24c9897a325986d00f, type: 2}
       requiredTag: 
-    resultCardPrefab: {fileID: 4818325329617841650, guid: c38f4772d6df7d54b8b58aa99e8ffd53, type: 3}
-  - requiredSlots:
-    - specificCard: {fileID: 11400000, guid: 7753af22d37adb74e80258164bbeab1f, type: 2}
+    - specificCard: {fileID: 11400000, guid: 614188bbd461e2245a2f358d02171974, type: 2}
       requiredTag: 
-    - specificCard: {fileID: 11400000, guid: b53cb569823a09545a1bd1a8012aaf3e, type: 2}
-      requiredTag: 
-    resultCardPrefab: {fileID: 332944971010077324, guid: ca3b9461a9be9cf42b977d6cba00807d, type: 3}
+    resultCardPrefab: {fileID: 332944971010077324, guid: 60f304e9e8fa2d249b0b39500cac0d95, type: 3}
   handManager: {fileID: 874020453}
   fusionButton: {fileID: 1620689768}
   playerStats: {fileID: 1040450597}
