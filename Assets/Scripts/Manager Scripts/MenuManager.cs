@@ -8,12 +8,20 @@ public class MenuManager : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject helpPanel;
 
-    private bool isMuted = false;
+    [Header("Audio Sources")]
+    public AudioSource backgroundMusic;
+    public AudioSource sfxSource;
+
+    [Header("Mute Button Objects")]
+    public GameObject bgmMuteButton;
+    public GameObject bgmUnmuteButton;
+    public GameObject sfxMuteButton;
+    public GameObject sfxUnmuteButton;
 
     // --- Play loads another scene ---
     public void PlayGame()
     {
-        SceneManager.LoadScene("GameScene"); // Replace with your game scene name
+        SceneManager.LoadScene("GameScene");
     }
 
     // --- Show Panels ---
@@ -38,25 +46,44 @@ public class MenuManager : MonoBehaviour
         helpPanel.SetActive(true);
     }
 
-    // --- Audio Controls ---
-    public void MuteAudio()
+    // --- BGM Buttons ---
+    public void MuteBGM()
     {
-        AudioListener.volume = 0f;
-        isMuted = true;
-        Debug.Log("Audio Muted");
+        backgroundMusic.volume = 0f;
+        bgmMuteButton.SetActive(false);
+        bgmUnmuteButton.SetActive(true);
+        Debug.Log("BGM Muted");
     }
 
-    public void UnmuteAudio()
+    public void UnmuteBGM()
     {
-        AudioListener.volume = 1f;
-        isMuted = false;
-        Debug.Log("Audio Unmuted");
+        backgroundMusic.volume = 1f;
+        bgmMuteButton.SetActive(true);
+        bgmUnmuteButton.SetActive(false);
+        Debug.Log("BGM Unmuted");
+    }
+
+    // --- SFX Buttons ---
+    public void MuteSFX()
+    {
+        sfxSource.volume = 0f;
+        sfxMuteButton.SetActive(false);
+        sfxUnmuteButton.SetActive(true);
+        Debug.Log("SFX Muted");
+    }
+
+    public void UnmuteSFX()
+    {
+        sfxSource.volume = 1f;
+        sfxMuteButton.SetActive(true);
+        sfxUnmuteButton.SetActive(false);
+        Debug.Log("SFX Unmuted");
     }
 
     // --- Exit ---
     public void ExitGame()
     {
         Application.Quit();
-        Debug.Log("Game Closed"); // Works only in build
+        Debug.Log("Game Closed");
     }
 }
