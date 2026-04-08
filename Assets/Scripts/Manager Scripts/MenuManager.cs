@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
     [Header("Panels")]
     public GameObject mainMenuPanel;
     public GameObject settingsPanel;
-    public GameObject helpPanel;
+    //public GameObject helpPanel;
 
     private bool isMuted = false;
 
@@ -21,22 +21,22 @@ public class MenuManager : MonoBehaviour
     {
         mainMenuPanel.SetActive(true);
         settingsPanel.SetActive(false);
-        helpPanel.SetActive(false);
+        //helpPanel.SetActive(false);
     }
 
     public void ShowSettings()
     {
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(true);
-        helpPanel.SetActive(false);
+        //helpPanel.SetActive(false);
     }
 
-    public void ShowHelp()
+  /*  public void ShowHelp()
     {
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
         helpPanel.SetActive(true);
-    }
+    }*/
 
     // --- Audio Controls ---
     public void MuteAudio()
