@@ -8082,7 +8082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7748222796559130715, guid: 4b02d6c0e4ad159439dc026e83c68805, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8927054788583913656, guid: 4b02d6c0e4ad159439dc026e83c68805, type: 3}
       propertyPath: m_IsActive
@@ -8181,10 +8181,6 @@ PrefabInstance:
     - target: {fileID: 7576087012569153144, guid: 74ca497746fe7a34e9482fdbdc785463, type: 3}
       propertyPath: m_Name
       value: DiscardArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 7576087012569153144, guid: 74ca497746fe7a34e9482fdbdc785463, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7887438221885548754, guid: 74ca497746fe7a34e9482fdbdc785463, type: 3}
       propertyPath: m_LocalPosition.x
