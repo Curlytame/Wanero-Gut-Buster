@@ -5360,6 +5360,7 @@ MonoBehaviour:
   - {fileID: 332944971010077324, guid: 35fc94c120af3b74787a54c904054794, type: 3}
   - {fileID: 332944971010077324, guid: 0ff07213a3a65854f865f6032ff5a6f6, type: 3}
   - {fileID: 332944971010077324, guid: 0ff07213a3a65854f865f6032ff5a6f6, type: 3}
+  - {fileID: 332944971010077324, guid: 0ff07213a3a65854f865f6032ff5a6f6, type: 3}
   deck2List: []
   deck3List: []
   startingHandSize: 2
