@@ -5292,16 +5292,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck1List:
-  - {fileID: 332944971010077324, guid: e9afa9bd8db70094a894bc284b6f7c06, type: 3}
-  - {fileID: 332944971010077324, guid: e9afa9bd8db70094a894bc284b6f7c06, type: 3}
-  - {fileID: 332944971010077324, guid: 35fc94c120af3b74787a54c904054794, type: 3}
-  - {fileID: 332944971010077324, guid: 35fc94c120af3b74787a54c904054794, type: 3}
-  - {fileID: 332944971010077324, guid: 1f5edcbbaa63be14386a91871352bfbd, type: 3}
-  - {fileID: 332944971010077324, guid: 1f5edcbbaa63be14386a91871352bfbd, type: 3}
+  - {fileID: 332944971010077324, guid: 651d32fae3976ad46ab92b0c31fa8c33, type: 3}
+  - {fileID: 4818325329617841650, guid: c38f4772d6df7d54b8b58aa99e8ffd53, type: 3}
+  - {fileID: 4818325329617841650, guid: cd6e12ab5b6892c40943ea6c74c5955e, type: 3}
+  - {fileID: 332944971010077324, guid: 0ff07213a3a65854f865f6032ff5a6f6, type: 3}
+  - {fileID: 31400357416790101, guid: eef8324b7d4888547b107ad414c7cc6e, type: 3}
+  - {fileID: 332944971010077324, guid: 6723502d268d10a4b88cac2cd7280a6d, type: 3}
   - {fileID: 2698964288962214006, guid: 641028e0ade48ac43a164affeff38260, type: 3}
-  - {fileID: 2698964288962214006, guid: 641028e0ade48ac43a164affeff38260, type: 3}
-  - {fileID: 8821006379586748781, guid: b9370a5d168929e48bc8ab83f22c1bf5, type: 3}
-  - {fileID: 8821006379586748781, guid: b9370a5d168929e48bc8ab83f22c1bf5, type: 3}
+  - {fileID: 332944971010077324, guid: ca3b9461a9be9cf42b977d6cba00807d, type: 3}
+  - {fileID: 332944971010077324, guid: e9afa9bd8db70094a894bc284b6f7c06, type: 3}
   deck2List: []
   deck3List: []
   startingHandSize: 2

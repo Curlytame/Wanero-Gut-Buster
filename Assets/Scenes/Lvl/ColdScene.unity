@@ -5292,16 +5292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck1List:
-  - {fileID: 332944971010077324, guid: 651d32fae3976ad46ab92b0c31fa8c33, type: 3}
-  - {fileID: 332944971010077324, guid: 651d32fae3976ad46ab92b0c31fa8c33, type: 3}
-  - {fileID: 332944971010077324, guid: 1f5edcbbaa63be14386a91871352bfbd, type: 3}
-  - {fileID: 332944971010077324, guid: 1f5edcbbaa63be14386a91871352bfbd, type: 3}
-  - {fileID: 332944971010077324, guid: 35fc94c120af3b74787a54c904054794, type: 3}
-  - {fileID: 332944971010077324, guid: 35fc94c120af3b74787a54c904054794, type: 3}
-  - {fileID: 332944971010077324, guid: 77b158f46bd03ad468e8f7dbcaf63baa, type: 3}
-  - {fileID: 332944971010077324, guid: 77b158f46bd03ad468e8f7dbcaf63baa, type: 3}
-  - {fileID: 332944971010077324, guid: e9afa9bd8db70094a894bc284b6f7c06, type: 3}
-  - {fileID: 332944971010077324, guid: e9afa9bd8db70094a894bc284b6f7c06, type: 3}
+  - {fileID: 332944971010077324, guid: 60f304e9e8fa2d249b0b39500cac0d95, type: 3}
   deck2List: []
   deck3List: []
   startingHandSize: 2
