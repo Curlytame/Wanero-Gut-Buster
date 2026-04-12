@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenuPanel;
     public GameObject settingsPanel;
     public GameObject helpPanel;
+    public GameObject almanacButton;
 
     [Header("Audio Sources")]
     public AudioSource backgroundMusic;
@@ -30,6 +31,7 @@ public class MenuManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
         settingsPanel.SetActive(false);
         helpPanel.SetActive(false);
+        almanacButton.SetActive(true);
     }
 
     public void ShowSettings()
@@ -37,6 +39,7 @@ public class MenuManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(true);
         helpPanel.SetActive(false);
+        almanacButton.SetActive(false);
     }
 
     public void ShowHelp()
@@ -44,6 +47,7 @@ public class MenuManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
         helpPanel.SetActive(true);
+        almanacButton.SetActive(false);
     }
 
     // --- BGM Buttons ---
